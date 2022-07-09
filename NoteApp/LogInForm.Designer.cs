@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogInForm));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.signUpButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,7 +40,6 @@
             this.signInButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.signUpButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -73,6 +73,22 @@
             this.splitContainer1.Size = new System.Drawing.Size(1365, 515);
             this.splitContainer1.SplitterDistance = 455;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // signUpButton
+            // 
+            this.signUpButton.BackColor = System.Drawing.Color.MintCream;
+            this.signUpButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.signUpButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.signUpButton.FlatAppearance.BorderSize = 3;
+            this.signUpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.signUpButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.signUpButton.Location = new System.Drawing.Point(129, 225);
+            this.signUpButton.Name = "signUpButton";
+            this.signUpButton.Size = new System.Drawing.Size(165, 29);
+            this.signUpButton.TabIndex = 5;
+            this.signUpButton.Text = "Sign Up";
+            this.signUpButton.UseVisualStyleBackColor = false;
+            this.signUpButton.Click += new System.EventHandler(this.signUpButton_Click);
             // 
             // button1
             // 
@@ -174,21 +190,6 @@
             this.button2.Size = new System.Drawing.Size(674, 245);
             this.button2.TabIndex = 4;
             this.button2.UseVisualStyleBackColor = false;
-            // 
-            // signUpButton
-            // 
-            this.signUpButton.BackColor = System.Drawing.Color.MintCream;
-            this.signUpButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.signUpButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.signUpButton.FlatAppearance.BorderSize = 3;
-            this.signUpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.signUpButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.signUpButton.Location = new System.Drawing.Point(129, 225);
-            this.signUpButton.Name = "signUpButton";
-            this.signUpButton.Size = new System.Drawing.Size(165, 29);
-            this.signUpButton.TabIndex = 5;
-            this.signUpButton.Text = "Sign Up";
-            this.signUpButton.UseVisualStyleBackColor = false;
             // 
             // LogInForm
             // 
