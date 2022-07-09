@@ -20,5 +20,9 @@ namespace NoteAppBusiness.Serivices
         {
             return _content.Categories.Where(categorie => categorie.Name == categorieName).ToList();
         }
+        public List<User> FindUserByLogInName(string logName)
+        {
+            return _content.Users.Where(user => user.LoginName == logName).ToList();
+        }
     }
 }
