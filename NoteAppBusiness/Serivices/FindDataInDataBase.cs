@@ -24,5 +24,11 @@ namespace NoteAppBusiness.Serivices
         {
             return _content.Users.Where(user => user.LoginName == logName).ToList();
         }
+        public User FindUserByLogNameAndPassword(string logName, string password)
+        {
+            var user = _content.Users.
+                FirstOrDefault(user => user.LoginName == logName && user.LoginPassword == password);
+            return user;
+        }
     }
 }
