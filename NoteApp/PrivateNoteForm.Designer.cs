@@ -47,14 +47,14 @@
             this.categorieNameTextBox = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.button5 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.uploadPictureBox = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.noteTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.noteNameTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.categorieNameList = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -62,7 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uploadPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -261,14 +261,14 @@
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.Color.MediumTurquoise;
             this.splitContainer2.Panel2.Controls.Add(this.button5);
-            this.splitContainer2.Panel2.Controls.Add(this.pictureBox1);
+            this.splitContainer2.Panel2.Controls.Add(this.uploadPictureBox);
             this.splitContainer2.Panel2.Controls.Add(this.button4);
             this.splitContainer2.Panel2.Controls.Add(this.label8);
-            this.splitContainer2.Panel2.Controls.Add(this.textBox4);
+            this.splitContainer2.Panel2.Controls.Add(this.noteTextBox);
             this.splitContainer2.Panel2.Controls.Add(this.label7);
-            this.splitContainer2.Panel2.Controls.Add(this.textBox3);
+            this.splitContainer2.Panel2.Controls.Add(this.noteNameTextBox);
             this.splitContainer2.Panel2.Controls.Add(this.label6);
-            this.splitContainer2.Panel2.Controls.Add(this.comboBox3);
+            this.splitContainer2.Panel2.Controls.Add(this.categorieNameList);
             this.splitContainer2.Size = new System.Drawing.Size(1298, 415);
             this.splitContainer2.SplitterDistance = 939;
             this.splitContainer2.TabIndex = 7;
@@ -282,14 +282,15 @@
             this.button5.TabIndex = 12;
             this.button5.Text = "Upload picture";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.uploadPhoto_Click);
             // 
-            // pictureBox1
+            // uploadPictureBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(6, 351);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(81, 48);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.uploadPictureBox.Location = new System.Drawing.Point(6, 351);
+            this.uploadPictureBox.Name = "uploadPictureBox";
+            this.uploadPictureBox.Size = new System.Drawing.Size(81, 48);
+            this.uploadPictureBox.TabIndex = 11;
+            this.uploadPictureBox.TabStop = false;
             // 
             // button4
             // 
@@ -299,6 +300,7 @@
             this.button4.TabIndex = 8;
             this.button4.Text = "Save";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // label8
             // 
@@ -310,13 +312,13 @@
             this.label8.TabIndex = 10;
             this.label8.Text = "Write note:";
             // 
-            // textBox4
+            // noteTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(6, 156);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(308, 189);
-            this.textBox4.TabIndex = 5;
+            this.noteTextBox.Location = new System.Drawing.Point(6, 156);
+            this.noteTextBox.Multiline = true;
+            this.noteTextBox.Name = "noteTextBox";
+            this.noteTextBox.Size = new System.Drawing.Size(308, 189);
+            this.noteTextBox.TabIndex = 5;
             // 
             // label7
             // 
@@ -328,12 +330,12 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "Write note name:";
             // 
-            // textBox3
+            // noteNameTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(6, 98);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(308, 27);
-            this.textBox3.TabIndex = 5;
+            this.noteNameTextBox.Location = new System.Drawing.Point(6, 98);
+            this.noteNameTextBox.Name = "noteNameTextBox";
+            this.noteNameTextBox.Size = new System.Drawing.Size(308, 27);
+            this.noteNameTextBox.TabIndex = 5;
             // 
             // label6
             // 
@@ -345,14 +347,14 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Create new note:";
             // 
-            // comboBox3
+            // categorieNameList
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(6, 39);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(308, 28);
-            this.comboBox3.TabIndex = 8;
-            this.comboBox3.Text = "Choose categorie...";
+            this.categorieNameList.FormattingEnabled = true;
+            this.categorieNameList.Location = new System.Drawing.Point(6, 39);
+            this.categorieNameList.Name = "categorieNameList";
+            this.categorieNameList.Size = new System.Drawing.Size(308, 28);
+            this.categorieNameList.TabIndex = 8;
+            this.categorieNameList.Text = "Choose categorie...";
             // 
             // PrivateNoteForm
             // 
@@ -380,7 +382,7 @@
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uploadPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,12 +410,12 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox noteTextBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox noteNameTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox categorieNameList;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox uploadPictureBox;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using NoteAppBusiness.Serivices;
 using NoteAppRepository.Db_Content;
@@ -28,6 +29,7 @@ namespace NoteApp
             for (int i = 0; i < categorieList.Count; i++)
             {
                 categorieListBox.Items.Add(categorieList[i].Name);
+                categorieNameList.Items.Add(categorieList[i].Name);
             }
         }
         private void CreateNewCategorieButton_Click(object sender, System.EventArgs e)
@@ -47,5 +49,22 @@ namespace NoteApp
                 AddCategorieToList();
             }           
         }
+        private void uploadPhoto_Click(object sender, System.EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Filter = "Image Files (*.jpg;*.jepg;.*.gif;) |*.jpg;*.jepg;.*.gif";
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                uploadPictureBox.Image = new Bitmap(openFile.FileName);
+            }
+        }
+        private void saveButton_Click(object sender, System.EventArgs e)
+        {
+            string name = noteNameTextBox.Text;
+            string note = noteTextBox.Text;
+            addData.AddNewNote(name, note, true, "www.google.lt");
+        }
+
+        
     }
 }

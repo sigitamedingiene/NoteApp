@@ -6,14 +6,9 @@ namespace NoteAppBusiness.Serivices
     public class AddDataToDataBase
     {
         private DbContent _content;
-        private Note _note;
         public AddDataToDataBase(DbContent dbContent)
         {
             _content = dbContent;
-        }
-        public AddDataToDataBase(DbContent content, Note note) : this(content)
-        {
-            _note = note;
         }
         public void AddNewNote(string name, string record, bool privateRecord, string photoUrl)
         {
