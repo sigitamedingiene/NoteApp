@@ -144,6 +144,7 @@
             this.passwordTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.passwordTextBox.Location = new System.Drawing.Point(253, 178);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(407, 27);
             this.passwordTextBox.TabIndex = 3;
             this.passwordTextBox.Text = "Password...";
@@ -163,7 +164,7 @@
             this.signInButton.BackColor = System.Drawing.Color.Teal;
             this.signInButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.signInButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.signInButton.Location = new System.Drawing.Point(524, 211);
+            this.signInButton.Location = new System.Drawing.Point(524, 218);
             this.signInButton.Name = "signInButton";
             this.signInButton.Size = new System.Drawing.Size(136, 43);
             this.signInButton.TabIndex = 1;
