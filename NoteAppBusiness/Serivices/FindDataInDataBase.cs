@@ -16,7 +16,7 @@ namespace NoteAppBusiness.Serivices
         {
             return _content.Notes.Where(notes => notes.Name == name).ToList();
         }
-        public List<Categorie> FindNotesByCategorie(string categorieName)
+        public List<Categorie> FindNotesByCategorie(string categorieName)//manau neteisingai, cia randa kategorija, ne uzrasus.
         {
             return _content.Categories.Where(categorie => categorie.Name == categorieName).ToList();
         }
@@ -29,6 +29,16 @@ namespace NoteAppBusiness.Serivices
             var user = _content.Users.
                 FirstOrDefault(user => user.LoginName == logName && user.LoginPassword == password);
             return user;
+        }
+        public List<Categorie> FindAllCategories()
+        {
+            return _content.Categories.ToList();
+        }
+        public Categorie FindCategorieByName(string name)
+        {
+            var categorie = _content.Categories.
+                FirstOrDefault(c => c.Name == name);
+            return categorie;
         }
     }
 }

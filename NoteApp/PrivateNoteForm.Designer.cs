@@ -38,7 +38,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.categorieListBox = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
@@ -46,6 +46,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.categorieNameTextBox = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.button5 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -53,8 +55,6 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -132,7 +132,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.button3);
             this.splitContainer1.Panel1.Controls.Add(this.button2);
-            this.splitContainer1.Panel1.Controls.Add(this.comboBox2);
+            this.splitContainer1.Panel1.Controls.Add(this.categorieListBox);
             this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
             // 
             // splitContainer1.Panel2
@@ -185,14 +185,14 @@
             this.button2.Text = "Search";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // categorieListBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(12, 93);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(308, 28);
-            this.comboBox2.TabIndex = 7;
-            this.comboBox2.Text = "Choose categorie...";
+            this.categorieListBox.FormattingEnabled = true;
+            this.categorieListBox.Location = new System.Drawing.Point(12, 93);
+            this.categorieListBox.Name = "categorieListBox";
+            this.categorieListBox.Size = new System.Drawing.Size(308, 28);
+            this.categorieListBox.TabIndex = 7;
+            this.categorieListBox.Text = "Choose categorie...";
             // 
             // comboBox1
             // 
@@ -273,6 +273,24 @@
             this.splitContainer2.SplitterDistance = 939;
             this.splitContainer2.TabIndex = 7;
             // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button5.Location = new System.Drawing.Point(93, 351);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(61, 48);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "Upload picture";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(6, 351);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(81, 48);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(205, 351);
@@ -336,24 +354,6 @@
             this.comboBox3.TabIndex = 8;
             this.comboBox3.Text = "Choose categorie...";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(6, 351);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(81, 48);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button5.Location = new System.Drawing.Point(93, 351);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(61, 48);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "Upload picture";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // PrivateNoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -403,7 +403,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox categorieListBox;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Button button4;
