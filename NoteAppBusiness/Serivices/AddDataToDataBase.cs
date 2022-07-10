@@ -33,8 +33,8 @@ namespace NoteAppBusiness.Serivices
         {
             Categorie newCategorie = new(name, description, privateName);
             _content.Add(newCategorie);
-            Note note = new(_note.Name, _note.Record, _note.PrivateRecord, _note.PhotoUrl);
-            newCategorie.Notes.Add(note);
+            //Note note = new(_note.Name, _note.Record, _note.PrivateRecord, _note.PhotoUrl);
+            //newCategorie.Notes.Add(note);
             _content.SaveChanges();
         }
     }

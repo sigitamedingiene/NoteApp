@@ -7,6 +7,8 @@ namespace NoteApp
 {
     public partial class PrivateNoteForm : Form
     {
+        public static DbContent _content = new();
+        AddDataToDataBase addData = new(_content);
         public PrivateNoteForm()
         {
             InitializeComponent();
@@ -16,6 +18,13 @@ namespace NoteApp
             userId.Text = LogInForm.SetValueForUserId;
             userTextBox.Text = LogInForm.SetValueForUserName;
             userSurnameTextBox.Text = LogInForm.SetValueForUserSurName;
+        }
+
+        private void CreateNewCategorieButton_Click(object sender, System.EventArgs e)
+        {
+            string name = categorieNameTextBox.Text;
+            string description = descriptionTextBox.Text;
+            addData.AddNewCategorie(name, true, description);            
         }
     }
 }
