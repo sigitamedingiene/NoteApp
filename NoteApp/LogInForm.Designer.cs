@@ -134,7 +134,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(120, 112);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(192, 46);
+            this.label1.Size = new System.Drawing.Size(187, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "New Here?";
             // 
@@ -169,6 +169,7 @@
             this.signInButton.TabIndex = 1;
             this.signInButton.Text = "Sign In";
             this.signInButton.UseVisualStyleBackColor = false;
+            this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
             // 
             // label3
             // 
