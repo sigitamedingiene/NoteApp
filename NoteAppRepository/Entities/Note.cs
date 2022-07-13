@@ -18,6 +18,8 @@ namespace NoteAppRepository.Entities
         [ForeignKey("Categorie")]
         public Guid CategorieId { get; set; }
         public Categorie Categorie { get; set; }
+        public Guid UserId { get; set; }
+        public User User { get; set; }
         public Note(string name, string record, bool privateRecord, string photoUrl)
         {
             Id = Guid.NewGuid();

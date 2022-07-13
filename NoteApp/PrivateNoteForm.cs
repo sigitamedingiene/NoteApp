@@ -17,7 +17,7 @@ namespace NoteApp
         {
             InitializeComponent();
             AddCategorieToList();
-            AddNoteNameList();
+            //AddNoteNameList();
         }
         private void PrivateNoteForm_Load(object sender, System.EventArgs e)
         {
@@ -34,14 +34,14 @@ namespace NoteApp
                 categorieNameList.Items.Add(categorieList[i].Name);
             }
         }
-        private void AddNoteNameList()
+        /*private void AddNoteNameList()
         {
             List<Note> noteList = findData.FindAllNotes();
             for (int i = 0; i < noteList.Count; i++)
             {
                 noteNameList.Items.Add(noteList[i].Name);
             }
-        }
+        }*/
         private void CreateNewCategorieButton_Click(object sender, System.EventArgs e)
         {
             string name = categorieNameTextBox.Text;
@@ -76,12 +76,12 @@ namespace NoteApp
             var categorie = findData.FindCategorieByName(categorieNameList.Text);
             Guid categorieId = categorie.Id;
             var user = findData.FindUserById(userId);
-            addData.AddNewNote(name, record, true, "file.path", categorieId);
+            addData.AddNewNote(name, record, true, "file.path", categorieId, userId);
             var note = findData.FindNoteByName(name);            
             addData.AddNoteToUser(user, note);
             addData.AddNoteToCategorie(categorie, note);
             MessageBox.Show("Note created succsesfully");
-            AddNoteNameList();
+            //AddNoteNameList();
         }
 
         private void searchNoteByNameButton_Click(object sender, EventArgs e)

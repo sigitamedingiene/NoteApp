@@ -23,10 +23,10 @@ namespace NoteAppBusiness.Serivices
                 .FirstOrDefault(note => note.Name == name);
             return note;
         }
-        public List<Note> FindAllNotes()
+        /*public List<Note> FindAllNotes()
         {
             return _content.Notes.ToList();
-        }       
+        }*/       
         public List<User> FindUserByLogInName(string logName)
         {
             return _content.Users.Where(user => user.LoginName == logName).ToList();
