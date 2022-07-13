@@ -37,19 +37,20 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.searchNotesByCategorie = new System.Windows.Forms.Button();
             this.searchNoteByNameButton = new System.Windows.Forms.Button();
             this.categorieListBox = new System.Windows.Forms.ComboBox();
             this.noteNameList = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CreateNewCategorieButton = new System.Windows.Forms.Button();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.categorieNameTextBox = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.button5 = new System.Windows.Forms.Button();
+            this.noteListView = new System.Windows.Forms.TextBox();
+            this.uploadPhoto = new System.Windows.Forms.Button();
             this.uploadPictureBox = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.noteTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -60,7 +61,6 @@
             this.editButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
-            this.noteListView = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -138,7 +138,7 @@
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.button3);
+            this.splitContainer1.Panel1.Controls.Add(this.searchNotesByCategorie);
             this.splitContainer1.Panel1.Controls.Add(this.searchNoteByNameButton);
             this.splitContainer1.Panel1.Controls.Add(this.categorieListBox);
             this.splitContainer1.Panel1.Controls.Add(this.noteNameList);
@@ -146,7 +146,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.splitContainer1.Panel2.Controls.Add(this.button1);
+            this.splitContainer1.Panel2.Controls.Add(this.CreateNewCategorieButton);
             this.splitContainer1.Panel2.Controls.Add(this.descriptionTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
@@ -175,14 +175,15 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Search notes:";
             // 
-            // button3
+            // searchNotesByCategorie
             // 
-            this.button3.Location = new System.Drawing.Point(274, 97);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(80, 29);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Search";
-            this.button3.UseVisualStyleBackColor = true;
+            this.searchNotesByCategorie.Location = new System.Drawing.Point(274, 97);
+            this.searchNotesByCategorie.Name = "searchNotesByCategorie";
+            this.searchNotesByCategorie.Size = new System.Drawing.Size(80, 29);
+            this.searchNotesByCategorie.TabIndex = 5;
+            this.searchNotesByCategorie.Text = "Search";
+            this.searchNotesByCategorie.UseVisualStyleBackColor = true;
+            this.searchNotesByCategorie.Click += new System.EventHandler(this.searchNotesByCategorie_Click);
             // 
             // searchNoteByNameButton
             // 
@@ -212,15 +213,15 @@
             this.noteNameList.TabIndex = 6;
             this.noteNameList.Text = "Choose note name...";
             // 
-            // button1
+            // CreateNewCategorieButton
             // 
-            this.button1.Location = new System.Drawing.Point(718, 92);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 29);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Create";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.CreateNewCategorieButton_Click);
+            this.CreateNewCategorieButton.Location = new System.Drawing.Point(718, 92);
+            this.CreateNewCategorieButton.Name = "CreateNewCategorieButton";
+            this.CreateNewCategorieButton.Size = new System.Drawing.Size(174, 29);
+            this.CreateNewCategorieButton.TabIndex = 4;
+            this.CreateNewCategorieButton.Text = "Create";
+            this.CreateNewCategorieButton.UseVisualStyleBackColor = true;
+            this.CreateNewCategorieButton.Click += new System.EventHandler(this.CreateNewCategorieButton_Click);
             // 
             // descriptionTextBox
             // 
@@ -272,9 +273,9 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.splitContainer2.Panel2.Controls.Add(this.button5);
+            this.splitContainer2.Panel2.Controls.Add(this.uploadPhoto);
             this.splitContainer2.Panel2.Controls.Add(this.uploadPictureBox);
-            this.splitContainer2.Panel2.Controls.Add(this.button4);
+            this.splitContainer2.Panel2.Controls.Add(this.saveButton);
             this.splitContainer2.Panel2.Controls.Add(this.label8);
             this.splitContainer2.Panel2.Controls.Add(this.noteTextBox);
             this.splitContainer2.Panel2.Controls.Add(this.label7);
@@ -285,16 +286,27 @@
             this.splitContainer2.SplitterDistance = 576;
             this.splitContainer2.TabIndex = 7;
             // 
-            // button5
+            // noteListView
             // 
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button5.Location = new System.Drawing.Point(93, 351);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(61, 48);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "Upload picture";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.uploadPhoto_Click);
+            this.noteListView.BackColor = System.Drawing.SystemColors.Menu;
+            this.noteListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.noteListView.Font = new System.Drawing.Font("Viner Hand ITC", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.noteListView.Location = new System.Drawing.Point(42, 59);
+            this.noteListView.Multiline = true;
+            this.noteListView.Name = "noteListView";
+            this.noteListView.Size = new System.Drawing.Size(500, 322);
+            this.noteListView.TabIndex = 0;
+            // 
+            // uploadPhoto
+            // 
+            this.uploadPhoto.Font = new System.Drawing.Font("Segoe UI", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.uploadPhoto.Location = new System.Drawing.Point(93, 351);
+            this.uploadPhoto.Name = "uploadPhoto";
+            this.uploadPhoto.Size = new System.Drawing.Size(61, 48);
+            this.uploadPhoto.TabIndex = 12;
+            this.uploadPhoto.Text = "Upload picture";
+            this.uploadPhoto.UseVisualStyleBackColor = true;
+            this.uploadPhoto.Click += new System.EventHandler(this.uploadPhoto_Click);
             // 
             // uploadPictureBox
             // 
@@ -304,15 +316,15 @@
             this.uploadPictureBox.TabIndex = 11;
             this.uploadPictureBox.TabStop = false;
             // 
-            // button4
+            // saveButton
             // 
-            this.button4.Location = new System.Drawing.Point(205, 351);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(107, 48);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Save";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.saveButton_Click);
+            this.saveButton.Location = new System.Drawing.Point(205, 351);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(107, 48);
+            this.saveButton.TabIndex = 8;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // label8
             // 
@@ -403,17 +415,6 @@
             this.logOutButton.Text = "Log Out";
             this.logOutButton.UseVisualStyleBackColor = true;
             // 
-            // noteListView
-            // 
-            this.noteListView.BackColor = System.Drawing.SystemColors.Menu;
-            this.noteListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.noteListView.Font = new System.Drawing.Font("Viner Hand ITC", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.noteListView.Location = new System.Drawing.Point(42, 59);
-            this.noteListView.Multiline = true;
-            this.noteListView.Name = "noteListView";
-            this.noteListView.Size = new System.Drawing.Size(500, 322);
-            this.noteListView.TabIndex = 0;
-            // 
             // PrivateNoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -460,25 +461,25 @@
         private System.Windows.Forms.TextBox userSurnameTextBox;
         private System.Windows.Forms.Label userId;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button CreateNewCategorieButton;
         private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox categorieNameTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button searchNotesByCategorie;
         private System.Windows.Forms.Button searchNoteByNameButton;
         private System.Windows.Forms.ComboBox categorieListBox;
         private System.Windows.Forms.ComboBox noteNameList;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox noteTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox noteNameTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button uploadPhoto;
         private System.Windows.Forms.PictureBox uploadPictureBox;
         private System.Windows.Forms.ComboBox categorieNameList;
         private System.Windows.Forms.TextBox searchTextBox;
