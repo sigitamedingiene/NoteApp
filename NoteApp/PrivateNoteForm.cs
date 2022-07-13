@@ -12,12 +12,11 @@ namespace NoteApp
     {
         public static DbContent _content = new();
         AddDataToDataBase addData = new(_content);
-        FindDataInDataBase findData = new(_content);
+        FindDataInDataBase findData = new(_content);        
         public PrivateNoteForm()
         {
             InitializeComponent();
             AddCategorieToList();
-            //AddNoteNameList();
         }
         private void PrivateNoteForm_Load(object sender, System.EventArgs e)
         {
@@ -34,14 +33,11 @@ namespace NoteApp
                 categorieNameList.Items.Add(categorieList[i].Name);
             }
         }
-        /*private void AddNoteNameList()
+        private void AddNotesNameByUserToList()
         {
-            List<Note> noteList = findData.FindAllNotes();
-            for (int i = 0; i < noteList.Count; i++)
-            {
-                noteNameList.Items.Add(noteList[i].Name);
-            }
-        }*/
+            Guid userId = Guid.Parse(userIdLabel.Text);
+            List<Note> noteList = findData.FindNotesByUser(userId);
+        }
         private void CreateNewCategorieButton_Click(object sender, System.EventArgs e)
         {
             string name = categorieNameTextBox.Text;
@@ -53,10 +49,11 @@ namespace NoteApp
             {
                 string description = descriptionTextBox.Text;
                 addData.AddNewCategorie(name, true, description);
+                categorieListBox.Items.Add(name);
+                categorieNameList.Items.Add(name);
                 MessageBox.Show("Categorie created succsesfully.");
                 categorieNameTextBox.Clear();
-                descriptionTextBox.Clear();
-                AddCategorieToList();
+                descriptionTextBox.Clear();                
             }           
         }
         private void uploadPhoto_Click(object sender, System.EventArgs e)
@@ -81,12 +78,11 @@ namespace NoteApp
             addData.AddNoteToUser(user, note);
             addData.AddNoteToCategorie(categorie, note);
             MessageBox.Show("Note created succsesfully");
-            //AddNoteNameList();
         }
 
         private void searchNoteByNameButton_Click(object sender, EventArgs e)
         {
-            var note = findData.FindNotesByName(noteNameList.Text);
+            var note = 9;
             searchTextBox.AppendText($"{ note}");
         }
     }
