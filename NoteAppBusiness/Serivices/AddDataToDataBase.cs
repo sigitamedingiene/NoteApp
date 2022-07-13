@@ -11,10 +11,11 @@ namespace NoteAppBusiness.Serivices
         {
             _content = dbContent;
         }
-        public void AddNewNote(string name, string record, bool privateRecord, string photoUrl, Guid categorieId)
+        public void AddNewNote(string name, string record, bool privateRecord, string photoUrl, Guid categorieId, Guid userId)
         {
             Note newNote = new(name, record, privateRecord, photoUrl);
             newNote.CategorieId = categorieId;
+            newNote.UserId = userId;
             _content.Add(newNote);
             _content.SaveChanges();
         }
