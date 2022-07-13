@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NoteAppRepository.Db_Content;
 using NoteAppRepository.Entities;
@@ -16,10 +17,16 @@ namespace NoteAppBusiness.Serivices
         {
             return _content.Notes.Where(notes => notes.Name == name).ToList();
         }
-        public List<Categorie> FindNotesByCategorie(string categorieName)//manau neteisingai, cia randa kategorija, ne uzrasus.
+        public Note FindNoteByName(string name)
         {
-            return _content.Categories.Where(categorie => categorie.Name == categorieName).ToList();
+            var note = _content.Notes
+                .FirstOrDefault(note => note.Name == name);
+            return note;
         }
+        public List<Note> FindAllNotes()
+        {
+            return _content.Notes.ToList();
+        }       
         public List<User> FindUserByLogInName(string logName)
         {
             return _content.Users.Where(user => user.LoginName == logName).ToList();
@@ -28,6 +35,12 @@ namespace NoteAppBusiness.Serivices
         {
             var user = _content.Users.
                 FirstOrDefault(user => user.LoginName == logName && user.LoginPassword == password);
+            return user;
+        }
+        public User FindUserById(Guid userId)
+        {
+            var user = _content.Users.
+                FirstOrDefault(user => user.Id == userId);
             return user;
         }
         public List<Categorie> FindAllCategories()

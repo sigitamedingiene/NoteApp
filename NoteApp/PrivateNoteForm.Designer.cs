@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.userNameLabel = new System.Windows.Forms.Label();
+            this.userIdLabel = new System.Windows.Forms.Label();
             this.userTextBox = new System.Windows.Forms.TextBox();
             this.userSurnameTextBox = new System.Windows.Forms.TextBox();
             this.userId = new System.Windows.Forms.Label();
@@ -37,9 +37,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.searchNoteByNameButton = new System.Windows.Forms.Button();
             this.categorieListBox = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.noteNameList = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,11 +55,13 @@
             this.noteNameTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.categorieNameList = new System.Windows.Forms.ComboBox();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uploadPictureBox)).BeginInit();
@@ -70,19 +72,19 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(8, 4);
+            this.label1.Location = new System.Drawing.Point(6, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "User:";
             // 
-            // userNameLabel
+            // userIdLabel
             // 
-            this.userNameLabel.AutoSize = true;
-            this.userNameLabel.Location = new System.Drawing.Point(59, 9);
-            this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Size = new System.Drawing.Size(0, 20);
-            this.userNameLabel.TabIndex = 1;
+            this.userIdLabel.AutoSize = true;
+            this.userIdLabel.Location = new System.Drawing.Point(59, 9);
+            this.userIdLabel.Name = "userIdLabel";
+            this.userIdLabel.Size = new System.Drawing.Size(0, 20);
+            this.userIdLabel.TabIndex = 1;
             // 
             // userTextBox
             // 
@@ -131,9 +133,9 @@
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.button3);
-            this.splitContainer1.Panel1.Controls.Add(this.button2);
+            this.splitContainer1.Panel1.Controls.Add(this.searchNoteByNameButton);
             this.splitContainer1.Panel1.Controls.Add(this.categorieListBox);
-            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.noteNameList);
             // 
             // splitContainer1.Panel2
             // 
@@ -176,14 +178,15 @@
             this.button3.Text = "Search";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // searchNoteByNameButton
             // 
-            this.button2.Location = new System.Drawing.Point(326, 38);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 29);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Search";
-            this.button2.UseVisualStyleBackColor = true;
+            this.searchNoteByNameButton.Location = new System.Drawing.Point(326, 38);
+            this.searchNoteByNameButton.Name = "searchNoteByNameButton";
+            this.searchNoteByNameButton.Size = new System.Drawing.Size(107, 29);
+            this.searchNoteByNameButton.TabIndex = 5;
+            this.searchNoteByNameButton.Text = "Search";
+            this.searchNoteByNameButton.UseVisualStyleBackColor = true;
+            this.searchNoteByNameButton.Click += new System.EventHandler(this.searchNoteByNameButton_Click);
             // 
             // categorieListBox
             // 
@@ -194,14 +197,14 @@
             this.categorieListBox.TabIndex = 7;
             this.categorieListBox.Text = "Choose categorie...";
             // 
-            // comboBox1
+            // noteNameList
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 38);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(308, 28);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.Text = "Choose note name...";
+            this.noteNameList.FormattingEnabled = true;
+            this.noteNameList.Location = new System.Drawing.Point(12, 38);
+            this.noteNameList.Name = "noteNameList";
+            this.noteNameList.Size = new System.Drawing.Size(308, 28);
+            this.noteNameList.TabIndex = 6;
+            this.noteNameList.Text = "Choose note name...";
             // 
             // button1
             // 
@@ -256,6 +259,7 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.BackColor = System.Drawing.Color.DarkCyan;
+            this.splitContainer2.Panel1.Controls.Add(this.searchTextBox);
             // 
             // splitContainer2.Panel2
             // 
@@ -349,12 +353,18 @@
             // 
             // categorieNameList
             // 
-            this.categorieNameList.FormattingEnabled = true;
             this.categorieNameList.Location = new System.Drawing.Point(6, 39);
             this.categorieNameList.Name = "categorieNameList";
             this.categorieNameList.Size = new System.Drawing.Size(308, 28);
-            this.categorieNameList.TabIndex = 8;
-            this.categorieNameList.Text = "Choose categorie...";
+            this.categorieNameList.TabIndex = 13;
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(22, 22);
+            this.searchTextBox.Multiline = true;
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(298, 303);
+            this.searchTextBox.TabIndex = 0;
             // 
             // PrivateNoteForm
             // 
@@ -367,7 +377,7 @@
             this.Controls.Add(this.userId);
             this.Controls.Add(this.userSurnameTextBox);
             this.Controls.Add(this.userTextBox);
-            this.Controls.Add(this.userNameLabel);
+            this.Controls.Add(this.userIdLabel);
             this.Controls.Add(this.label1);
             this.Name = "PrivateNoteForm";
             this.Text = "PrivateNoteForm";
@@ -378,6 +388,8 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -391,7 +403,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label userNameLabel;
+        private System.Windows.Forms.Label userIdLabel;
         private System.Windows.Forms.TextBox userTextBox;
         private System.Windows.Forms.TextBox userSurnameTextBox;
         private System.Windows.Forms.Label userId;
@@ -404,9 +416,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button searchNoteByNameButton;
         private System.Windows.Forms.ComboBox categorieListBox;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox noteNameList;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label8;
@@ -414,8 +426,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox noteNameTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox categorieNameList;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.PictureBox uploadPictureBox;
+        private System.Windows.Forms.ComboBox categorieNameList;
+        private System.Windows.Forms.TextBox searchTextBox;
     }
 }

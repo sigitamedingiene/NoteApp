@@ -1,7 +1,6 @@
 ﻿using System.Windows.Forms;
 using NoteAppBusiness.Serivices;
 using NoteAppRepository.Db_Content;
-using NoteAppRepository.Entities;
 
 namespace NoteApp
 {
@@ -38,6 +37,7 @@ namespace NoteApp
                 SetValueForUserName = user.Name;
                 SetValueForUserSurName = user.SurName;
                 privateForm.Show();
+                this.Visible = false;
             }   
         }
     }

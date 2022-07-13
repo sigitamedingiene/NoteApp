@@ -1,4 +1,5 @@
-﻿using NoteAppRepository.Db_Content;
+﻿using System;
+using NoteAppRepository.Db_Content;
 using NoteAppRepository.Entities;
 
 namespace NoteAppBusiness.Serivices
@@ -10,9 +11,10 @@ namespace NoteAppBusiness.Serivices
         {
             _content = dbContent;
         }
-        public void AddNewNote(string name, string record, bool privateRecord, string photoUrl)
+        public void AddNewNote(string name, string record, bool privateRecord, string photoUrl, Guid categorieId)
         {
             Note newNote = new(name, record, privateRecord, photoUrl);
+            newNote.CategorieId = categorieId;
             _content.Add(newNote);
             _content.SaveChanges();
         }
@@ -20,9 +22,15 @@ namespace NoteAppBusiness.Serivices
         {
             User newUser = new(name, surName, logName, logPassword);
             _content.Add(newUser);
-            _content.SaveChanges();
-            //Note note = new(_note.Name, _note.Record, _note.PrivateRecord, _note.PhotoUrl);
-            //newUser.Notes.Add(note);            
+            _content.SaveChanges();            
+        }
+        public void AddNoteToUser(User user, Note note)
+        {
+            user.Notes.Add(note);
+        }
+        public void AddNoteToCategorie(Categorie categorie, Note note)
+        {
+            categorie.Notes.Add(note);
         }
         public void AddNewCategorie(string name, bool privateName, string description)
         {
