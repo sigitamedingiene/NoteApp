@@ -21,7 +21,11 @@ namespace NoteAppBusiness.Serivices
         }
         public List<Note> FindNotesByUser (Guid userId)
         {
-            return _content.Notes.Where(_note => _note.UserId == userId).ToList();
+            return _content.Notes.Where(note => note.UserId == userId).ToList();
+        }
+        public List<Note> FindNotesBycategorieName (string name)
+        {
+            return _content.Notes.Where(note => note.Categorie.Name == name).ToList();
         }
         public List<User> FindUserByLogInName(string logName)
         {
@@ -44,6 +48,10 @@ namespace NoteAppBusiness.Serivices
             var categorie = _content.Categories.
                 FirstOrDefault(c => c.Name == name);
             return categorie;
+        }
+        public List<Categorie> FindCategorieByUserId(Guid userId)
+        {
+            return _content.Categories.Where(categorie => categorie.UserId == userId).ToList();
         }
     }
 }

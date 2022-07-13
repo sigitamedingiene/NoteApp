@@ -33,9 +33,10 @@ namespace NoteAppBusiness.Serivices
         {
             categorie.Notes.Add(note);
         }
-        public void AddNewCategorie(string name, bool privateName, string description)
+        public void AddNewCategorie(string name, bool privateName, string description, Guid userId)
         {
             Categorie newCategorie = new(name, description, privateName);
+            newCategorie.UserId = userId;
             _content.Add(newCategorie);
             _content.SaveChanges();
         }
