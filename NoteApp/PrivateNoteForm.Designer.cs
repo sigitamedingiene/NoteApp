@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrivateNoteForm));
             this.label1 = new System.Windows.Forms.Label();
             this.userIdLabel = new System.Windows.Forms.Label();
             this.userTextBox = new System.Windows.Forms.TextBox();
@@ -56,6 +57,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.categorieNameList = new System.Windows.Forms.ComboBox();
             this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.editButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.logOutButton = new System.Windows.Forms.Button();
+            this.noteListView = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,6 +86,7 @@
             // userIdLabel
             // 
             this.userIdLabel.AutoSize = true;
+            this.userIdLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.userIdLabel.Location = new System.Drawing.Point(59, 9);
             this.userIdLabel.Name = "userIdLabel";
             this.userIdLabel.Size = new System.Drawing.Size(0, 20);
@@ -92,7 +98,7 @@
             this.userTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userTextBox.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.userTextBox.ForeColor = System.Drawing.Color.MintCream;
-            this.userTextBox.Location = new System.Drawing.Point(12, 34);
+            this.userTextBox.Location = new System.Drawing.Point(6, 28);
             this.userTextBox.Multiline = true;
             this.userTextBox.Name = "userTextBox";
             this.userTextBox.ReadOnly = true;
@@ -105,7 +111,7 @@
             this.userSurnameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userSurnameTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.userSurnameTextBox.ForeColor = System.Drawing.Color.MintCream;
-            this.userSurnameTextBox.Location = new System.Drawing.Point(141, 34);
+            this.userSurnameTextBox.Location = new System.Drawing.Point(135, 28);
             this.userSurnameTextBox.Multiline = true;
             this.userSurnameTextBox.Name = "userSurnameTextBox";
             this.userSurnameTextBox.ReadOnly = true;
@@ -129,7 +135,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.button3);
@@ -139,14 +145,14 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.descriptionTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.categorieNameTextBox);
             this.splitContainer1.Size = new System.Drawing.Size(1298, 139);
-            this.splitContainer1.SplitterDistance = 492;
+            this.splitContainer1.SplitterDistance = 358;
             this.splitContainer1.TabIndex = 6;
             // 
             // label5
@@ -171,18 +177,18 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(326, 92);
+            this.button3.Location = new System.Drawing.Point(274, 97);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 29);
+            this.button3.Size = new System.Drawing.Size(80, 29);
             this.button3.TabIndex = 5;
             this.button3.Text = "Search";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // searchNoteByNameButton
             // 
-            this.searchNoteByNameButton.Location = new System.Drawing.Point(326, 38);
+            this.searchNoteByNameButton.Location = new System.Drawing.Point(274, 38);
             this.searchNoteByNameButton.Name = "searchNoteByNameButton";
-            this.searchNoteByNameButton.Size = new System.Drawing.Size(107, 29);
+            this.searchNoteByNameButton.Size = new System.Drawing.Size(80, 29);
             this.searchNoteByNameButton.TabIndex = 5;
             this.searchNoteByNameButton.Text = "Search";
             this.searchNoteByNameButton.UseVisualStyleBackColor = true;
@@ -191,9 +197,9 @@
             // categorieListBox
             // 
             this.categorieListBox.FormattingEnabled = true;
-            this.categorieListBox.Location = new System.Drawing.Point(12, 93);
+            this.categorieListBox.Location = new System.Drawing.Point(12, 97);
             this.categorieListBox.Name = "categorieListBox";
-            this.categorieListBox.Size = new System.Drawing.Size(308, 28);
+            this.categorieListBox.Size = new System.Drawing.Size(256, 28);
             this.categorieListBox.TabIndex = 7;
             this.categorieListBox.Text = "Choose categorie...";
             // 
@@ -202,13 +208,13 @@
             this.noteNameList.FormattingEnabled = true;
             this.noteNameList.Location = new System.Drawing.Point(12, 38);
             this.noteNameList.Name = "noteNameList";
-            this.noteNameList.Size = new System.Drawing.Size(308, 28);
+            this.noteNameList.Size = new System.Drawing.Size(256, 28);
             this.noteNameList.TabIndex = 6;
             this.noteNameList.Text = "Choose note name...";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(569, 93);
+            this.button1.Location = new System.Drawing.Point(718, 92);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(174, 29);
             this.button1.TabIndex = 4;
@@ -221,7 +227,7 @@
             this.descriptionTextBox.Location = new System.Drawing.Point(190, 38);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(366, 84);
+            this.descriptionTextBox.Size = new System.Drawing.Size(522, 84);
             this.descriptionTextBox.TabIndex = 3;
             // 
             // label3
@@ -248,22 +254,24 @@
             // 
             this.categorieNameTextBox.Location = new System.Drawing.Point(190, 5);
             this.categorieNameTextBox.Name = "categorieNameTextBox";
-            this.categorieNameTextBox.Size = new System.Drawing.Size(366, 27);
+            this.categorieNameTextBox.Size = new System.Drawing.Size(522, 27);
             this.categorieNameTextBox.TabIndex = 1;
             // 
             // splitContainer2
             // 
-            this.splitContainer2.Location = new System.Drawing.Point(24, 206);
+            this.splitContainer2.Location = new System.Drawing.Point(384, 206);
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.BackColor = System.Drawing.Color.DarkCyan;
-            this.splitContainer2.Panel1.Controls.Add(this.searchTextBox);
+            this.splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.splitContainer2.Panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("splitContainer2.Panel1.BackgroundImage")));
+            this.splitContainer2.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.splitContainer2.Panel1.Controls.Add(this.noteListView);
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.splitContainer2.Panel2.Controls.Add(this.button5);
             this.splitContainer2.Panel2.Controls.Add(this.uploadPictureBox);
             this.splitContainer2.Panel2.Controls.Add(this.button4);
@@ -273,8 +281,8 @@
             this.splitContainer2.Panel2.Controls.Add(this.noteNameTextBox);
             this.splitContainer2.Panel2.Controls.Add(this.label6);
             this.splitContainer2.Panel2.Controls.Add(this.categorieNameList);
-            this.splitContainer2.Size = new System.Drawing.Size(1298, 415);
-            this.splitContainer2.SplitterDistance = 939;
+            this.splitContainer2.Size = new System.Drawing.Size(938, 415);
+            this.splitContainer2.SplitterDistance = 576;
             this.splitContainer2.TabIndex = 7;
             // 
             // button5
@@ -357,23 +365,67 @@
             this.categorieNameList.Name = "categorieNameList";
             this.categorieNameList.Size = new System.Drawing.Size(308, 28);
             this.categorieNameList.TabIndex = 13;
+            this.categorieNameList.Text = "Choose categorie...";
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(22, 22);
+            this.searchTextBox.Location = new System.Drawing.Point(24, 209);
             this.searchTextBox.Multiline = true;
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(298, 303);
+            this.searchTextBox.ReadOnly = true;
+            this.searchTextBox.Size = new System.Drawing.Size(354, 103);
             this.searchTextBox.TabIndex = 0;
+            // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(271, 318);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(107, 29);
+            this.editButton.TabIndex = 8;
+            this.editButton.Text = "Edit";
+            this.editButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(271, 353);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(107, 29);
+            this.deleteButton.TabIndex = 9;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            // 
+            // logOutButton
+            // 
+            this.logOutButton.Location = new System.Drawing.Point(1216, 5);
+            this.logOutButton.Name = "logOutButton";
+            this.logOutButton.Size = new System.Drawing.Size(106, 29);
+            this.logOutButton.TabIndex = 5;
+            this.logOutButton.Text = "Log Out";
+            this.logOutButton.UseVisualStyleBackColor = true;
+            // 
+            // noteListView
+            // 
+            this.noteListView.BackColor = System.Drawing.SystemColors.Menu;
+            this.noteListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.noteListView.Font = new System.Drawing.Font("Viner Hand ITC", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.noteListView.Location = new System.Drawing.Point(42, 59);
+            this.noteListView.Multiline = true;
+            this.noteListView.Name = "noteListView";
+            this.noteListView.Size = new System.Drawing.Size(500, 322);
+            this.noteListView.TabIndex = 0;
             // 
             // PrivateNoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(1334, 622);
+            this.ClientSize = new System.Drawing.Size(1334, 633);
+            this.Controls.Add(this.logOutButton);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.splitContainer2);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.userId);
             this.Controls.Add(this.userSurnameTextBox);
             this.Controls.Add(this.userTextBox);
@@ -430,5 +482,9 @@
         private System.Windows.Forms.PictureBox uploadPictureBox;
         private System.Windows.Forms.ComboBox categorieNameList;
         private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button logOutButton;
+        private System.Windows.Forms.TextBox noteListView;
     }
 }
