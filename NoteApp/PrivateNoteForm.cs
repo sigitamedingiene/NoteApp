@@ -16,15 +16,16 @@ namespace NoteApp
         public PrivateNoteForm()
         {
             InitializeComponent();
-            AddCategorieToList();
+            //AddCategorieToList();
         }
         private void PrivateNoteForm_Load(object sender, System.EventArgs e)
         {
             userIdLabel.Text = LogInForm.SetValueForUserId;
             userTextBox.Text = LogInForm.SetValueForUserName;
             userSurnameTextBox.Text = LogInForm.SetValueForUserSurName;
+            AddNoteNameByUserToList();
         }
-        private void AddCategorieToList()
+       /* private void AddCategorieToList()
         {
             List<Categorie> categorieList = findData.FindAllCategories();
             for (int i = 0; i < categorieList.Count; i++)
@@ -32,11 +33,15 @@ namespace NoteApp
                 categorieListBox.Items.Add(categorieList[i].Name);
                 categorieNameList.Items.Add(categorieList[i].Name);
             }
-        }
-        private void AddNotesNameByUserToList()
+        }*/
+        private void AddNoteNameByUserToList()
         {
             Guid userId = Guid.Parse(userIdLabel.Text);
             List<Note> noteList = findData.FindNotesByUser(userId);
+            for (int i = 0; i < noteList.Count; i++)
+            {
+                noteNameList.Items.Add(noteList[i].Name);
+            }
         }
         private void CreateNewCategorieButton_Click(object sender, System.EventArgs e)
         {
@@ -79,11 +84,11 @@ namespace NoteApp
             addData.AddNoteToCategorie(categorie, note);
             MessageBox.Show("Note created succsesfully");
         }
-
         private void searchNoteByNameButton_Click(object sender, EventArgs e)
         {
-            var note = 9;
-            searchTextBox.AppendText($"{ note}");
+            searchTextBox.Clear();
+            var note = findData.FindNoteByName(noteNameList.Text);
+            searchTextBox.AppendText($"Name: {note.Name};\r\n Note: {note.Record}\r\n");
         }
     }
 }
