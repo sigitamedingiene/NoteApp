@@ -12,7 +12,7 @@ namespace NoteApp
     {
         public static DbContent _content = new();
         AddDataToDataBase addData = new(_content);
-        FindDataInDataBase findData = new(_content);        
+        FindDataInDataBase findData = new(_content);
         public PrivateNoteForm()
         {
             InitializeComponent();
@@ -24,6 +24,12 @@ namespace NoteApp
             userTextBox.Text = LogInForm.SetValueForUserName;
             userSurnameTextBox.Text = LogInForm.SetValueForUserSurName;
             AddNoteNameByUserToList();
+            Guid userId = Guid.Parse(userIdLabel.Text);
+            var notes = findData.FindNotesByUser(userId);
+            for (int i = 0; i < notes.Count; i++)
+            {
+                noteListView.AppendText($"Note name: {notes[i].Name}; Record: {notes[i].Record}\r\n");
+            }
         }
        /* private void AddCategorieToList()
         {

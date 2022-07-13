@@ -47,7 +47,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.categorieNameTextBox = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.uploadPictureBox = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -57,13 +56,17 @@
             this.noteNameTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.categorieNameList = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.editButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.logOutButton = new System.Windows.Forms.Button();
+            this.noteListView = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uploadPictureBox)).BeginInit();
@@ -174,7 +177,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(274, 93);
+            this.button3.Location = new System.Drawing.Point(274, 97);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(80, 29);
             this.button3.TabIndex = 5;
@@ -194,7 +197,7 @@
             // categorieListBox
             // 
             this.categorieListBox.FormattingEnabled = true;
-            this.categorieListBox.Location = new System.Drawing.Point(12, 93);
+            this.categorieListBox.Location = new System.Drawing.Point(12, 97);
             this.categorieListBox.Name = "categorieListBox";
             this.categorieListBox.Size = new System.Drawing.Size(256, 28);
             this.categorieListBox.TabIndex = 7;
@@ -264,6 +267,7 @@
             this.splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.splitContainer2.Panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("splitContainer2.Panel1.BackgroundImage")));
             this.splitContainer2.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.splitContainer2.Panel1.Controls.Add(this.noteListView);
             // 
             // splitContainer2.Panel2
             // 
@@ -280,14 +284,6 @@
             this.splitContainer2.Size = new System.Drawing.Size(938, 415);
             this.splitContainer2.SplitterDistance = 576;
             this.splitContainer2.TabIndex = 7;
-            // 
-            // searchTextBox
-            // 
-            this.searchTextBox.Location = new System.Drawing.Point(24, 209);
-            this.searchTextBox.Multiline = true;
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(354, 103);
-            this.searchTextBox.TabIndex = 0;
             // 
             // button5
             // 
@@ -371,23 +367,52 @@
             this.categorieNameList.TabIndex = 13;
             this.categorieNameList.Text = "Choose categorie...";
             // 
-            // button2
+            // searchTextBox
             // 
-            this.button2.Location = new System.Drawing.Point(271, 318);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 29);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = true;
+            this.searchTextBox.Location = new System.Drawing.Point(24, 209);
+            this.searchTextBox.Multiline = true;
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.ReadOnly = true;
+            this.searchTextBox.Size = new System.Drawing.Size(354, 103);
+            this.searchTextBox.TabIndex = 0;
             // 
-            // button6
+            // editButton
             // 
-            this.button6.Location = new System.Drawing.Point(271, 353);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(107, 29);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "Delete";
-            this.button6.UseVisualStyleBackColor = true;
+            this.editButton.Location = new System.Drawing.Point(271, 318);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(107, 29);
+            this.editButton.TabIndex = 8;
+            this.editButton.Text = "Edit";
+            this.editButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(271, 353);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(107, 29);
+            this.deleteButton.TabIndex = 9;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            // 
+            // logOutButton
+            // 
+            this.logOutButton.Location = new System.Drawing.Point(1216, 5);
+            this.logOutButton.Name = "logOutButton";
+            this.logOutButton.Size = new System.Drawing.Size(106, 29);
+            this.logOutButton.TabIndex = 5;
+            this.logOutButton.Text = "Log Out";
+            this.logOutButton.UseVisualStyleBackColor = true;
+            // 
+            // noteListView
+            // 
+            this.noteListView.BackColor = System.Drawing.SystemColors.Menu;
+            this.noteListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.noteListView.Font = new System.Drawing.Font("Viner Hand ITC", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.noteListView.Location = new System.Drawing.Point(42, 59);
+            this.noteListView.Multiline = true;
+            this.noteListView.Name = "noteListView";
+            this.noteListView.Size = new System.Drawing.Size(500, 322);
+            this.noteListView.TabIndex = 0;
             // 
             // PrivateNoteForm
             // 
@@ -395,9 +420,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(1334, 633);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.logOutButton);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.splitContainer2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.userId);
@@ -414,6 +440,8 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -454,7 +482,9 @@
         private System.Windows.Forms.PictureBox uploadPictureBox;
         private System.Windows.Forms.ComboBox categorieNameList;
         private System.Windows.Forms.TextBox searchTextBox;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button logOutButton;
+        private System.Windows.Forms.TextBox noteListView;
     }
 }
