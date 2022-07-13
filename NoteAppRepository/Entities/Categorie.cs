@@ -14,6 +14,8 @@ namespace NoteAppRepository.Entities
         public bool PrivateName { get; set; }
         [Required]
         public string Description { get; set; }
+        public Guid UserId { get; set; }
+        public User User { get; set; }
         public List<Note> Notes { get; set; }
         public Categorie(string name, string description, bool privateName)
         {
