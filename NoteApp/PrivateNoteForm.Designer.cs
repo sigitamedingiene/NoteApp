@@ -48,6 +48,7 @@
             this.categorieNameTextBox = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.noteListView = new System.Windows.Forms.TextBox();
+            this.imgFilePath = new System.Windows.Forms.Label();
             this.uploadPhoto = new System.Windows.Forms.Button();
             this.uploadPictureBox = new System.Windows.Forms.PictureBox();
             this.saveButton = new System.Windows.Forms.Button();
@@ -273,6 +274,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.splitContainer2.Panel2.Controls.Add(this.imgFilePath);
             this.splitContainer2.Panel2.Controls.Add(this.uploadPhoto);
             this.splitContainer2.Panel2.Controls.Add(this.uploadPictureBox);
             this.splitContainer2.Panel2.Controls.Add(this.saveButton);
@@ -282,7 +284,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.noteNameTextBox);
             this.splitContainer2.Panel2.Controls.Add(this.label6);
             this.splitContainer2.Panel2.Controls.Add(this.categorieNameList);
-            this.splitContainer2.Size = new System.Drawing.Size(938, 415);
+            this.splitContainer2.Size = new System.Drawing.Size(938, 425);
             this.splitContainer2.SplitterDistance = 576;
             this.splitContainer2.TabIndex = 7;
             // 
@@ -291,11 +293,23 @@
             this.noteListView.BackColor = System.Drawing.SystemColors.Menu;
             this.noteListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.noteListView.Font = new System.Drawing.Font("Viner Hand ITC", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.noteListView.Location = new System.Drawing.Point(42, 59);
+            this.noteListView.Location = new System.Drawing.Point(33, 59);
             this.noteListView.Multiline = true;
             this.noteListView.Name = "noteListView";
-            this.noteListView.Size = new System.Drawing.Size(500, 322);
+            this.noteListView.ReadOnly = true;
+            this.noteListView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.noteListView.Size = new System.Drawing.Size(519, 356);
             this.noteListView.TabIndex = 0;
+            // 
+            // imgFilePath
+            // 
+            this.imgFilePath.AutoSize = true;
+            this.imgFilePath.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.imgFilePath.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.imgFilePath.Location = new System.Drawing.Point(6, 402);
+            this.imgFilePath.Name = "imgFilePath";
+            this.imgFilePath.Size = new System.Drawing.Size(0, 17);
+            this.imgFilePath.TabIndex = 14;
             // 
             // uploadPhoto
             // 
@@ -420,7 +434,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(1334, 633);
+            this.ClientSize = new System.Drawing.Size(1334, 641);
             this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.splitContainer2);
@@ -487,5 +501,6 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.TextBox noteListView;
+        private System.Windows.Forms.Label imgFilePath;
     }
 }

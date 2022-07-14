@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using NoteAppBusiness.Serivices;
 using NoteAppRepository.Db_Content;
@@ -32,8 +33,13 @@ namespace NoteApp
                 for (int j = 0; j < categories.Count; j++)
                 {
                     if(notes[i].CategorieId == categories[j].Id)
-                    {
-                        noteListView.AppendText($"\r\nCategorie: {categories[j].Name};\r\nNote name: {notes[i].Name}; Record: {notes[i].Record}\r\n");
+                    {                        
+                        if(notes[i].PhotoUrl == null)
+                        {
+                            noteListView.AppendText($"\r\nCategorie: {categories[j].Name};\r\nNote name: {notes[i].Name}; Record: {notes[i].Record};");
+                        }
+                        noteListView.AppendText($"\r\nCategorie: {categories[j].Name};\r\nNote name: {notes[i].Name}; Record: {notes[i].Record};");
+                        
                     }
                 }                
             }
@@ -81,8 +87,9 @@ namespace NoteApp
             OpenFileDialog openFile = new OpenFileDialog();
             openFile.Filter = "Image Files (*.jpg;*.jepg;.*.gif;) |*.jpg;*.jepg;.*.gif";
             if (openFile.ShowDialog() == DialogResult.OK)
-            {
-                uploadPictureBox.Image = new Bitmap(openFile.FileName);
+            {   var fileName = openFile.FileName;
+                uploadPictureBox.Image = new Bitmap(fileName);
+                imgFilePath.Text = fileName;
             }
         }
         private void saveButton_Click(object sender, System.EventArgs e)
@@ -92,7 +99,8 @@ namespace NoteApp
             Guid userId = Guid.Parse(userIdLabel.Text);
             var categorie = findData.FindCategorieByName(categorieNameList.Text);
             Guid categorieId = categorie.Id;
-            addData.AddNewNote(name, record, true, "file.path", categorieId, userId);
+            string pictureFilePath = imgFilePath.Text;
+            addData.AddNewNote(name, record, true, pictureFilePath, categorieId, userId);
             noteNameList.Items.Add(name);
             var user = findData.FindUserById(userId);
             var note = findData.FindNoteByName(name);            
