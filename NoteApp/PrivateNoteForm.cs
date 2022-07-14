@@ -26,9 +26,16 @@ namespace NoteApp
             AddCategorieByUserToList();
             Guid userId = Guid.Parse(userIdLabel.Text);
             var notes = findData.FindNotesByUser(userId);
+            var categories = findData.FindCategorieByUserId(userId);
             for (int i = 0; i < notes.Count; i++)
             {
-                noteListView.AppendText($"Note name: {notes[i].Name}; Record: {notes[i].Record}\r\n");
+                for (int j = 0; j < categories.Count; j++)
+                {
+                    if(notes[i].CategorieId == categories[j].Id)
+                    {
+                        noteListView.AppendText($"\r\nCategorie: {categories[j].Name};\r\nNote name: {notes[i].Name}; Record: {notes[i].Record}\r\n");
+                    }
+                }                
             }
         }
         private void AddCategorieByUserToList()
@@ -62,8 +69,6 @@ namespace NoteApp
                 string description = descriptionTextBox.Text;
                 Guid userId = Guid.Parse(userIdLabel.Text);
                 addData.AddNewCategorie(name, true, description, userId);
-                //categorieListBox.Items.Add(name);
-                //categorieNameList.Items.Add(name);
                 categorieNameList.Items.Add(name);
                 categorieListBox.Items.Add(name);
                 MessageBox.Show("Categorie created succsesfully.");
@@ -87,12 +92,16 @@ namespace NoteApp
             Guid userId = Guid.Parse(userIdLabel.Text);
             var categorie = findData.FindCategorieByName(categorieNameList.Text);
             Guid categorieId = categorie.Id;
-            var user = findData.FindUserById(userId);
             addData.AddNewNote(name, record, true, "file.path", categorieId, userId);
+            noteNameList.Items.Add(name);
+            var user = findData.FindUserById(userId);
             var note = findData.FindNoteByName(name);            
             addData.AddNoteToUser(user, note);
             addData.AddNoteToCategorie(categorie, note);
-            MessageBox.Show("Note created succsesfully");
+            noteListView.AppendText($"\r\nCategorie: {categorie.Name};\r\nNote name: {name}; Record: {record};\r\n");
+            noteNameTextBox.Clear();
+            noteTextBox.Clear();
+            MessageBox.Show("Note created succsesfully");            
         }
         private void searchNoteByNameButton_Click(object sender, EventArgs e)
         {
