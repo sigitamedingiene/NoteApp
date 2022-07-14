@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrivateNoteForm));
             this.label1 = new System.Windows.Forms.Label();
             this.userIdLabel = new System.Windows.Forms.Label();
@@ -62,6 +63,9 @@
             this.editButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
+            this.pictureImageList = new System.Windows.Forms.ImageList(this.components);
+            this.imgBox = new System.Windows.Forms.PictureBox();
+            this.idLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -71,6 +75,7 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uploadPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -419,6 +424,7 @@
             this.deleteButton.TabIndex = 9;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // logOutButton
             // 
@@ -429,12 +435,38 @@
             this.logOutButton.Text = "Log Out";
             this.logOutButton.UseVisualStyleBackColor = true;
             // 
+            // pictureImageList
+            // 
+            this.pictureImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.pictureImageList.ImageSize = new System.Drawing.Size(70, 70);
+            this.pictureImageList.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // imgBox
+            // 
+            this.imgBox.Location = new System.Drawing.Point(35, 395);
+            this.imgBox.Name = "imgBox";
+            this.imgBox.Size = new System.Drawing.Size(343, 236);
+            this.imgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgBox.TabIndex = 10;
+            this.imgBox.TabStop = false;
+            // 
+            // idLabel
+            // 
+            this.idLabel.AutoSize = true;
+            this.idLabel.Location = new System.Drawing.Point(24, 319);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(50, 20);
+            this.idLabel.TabIndex = 11;
+            this.idLabel.Text = "label9";
+            // 
             // PrivateNoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(1334, 641);
+            this.Controls.Add(this.idLabel);
+            this.Controls.Add(this.imgBox);
             this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.splitContainer2);
@@ -462,6 +494,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.uploadPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -502,5 +535,8 @@
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.TextBox noteListView;
         private System.Windows.Forms.Label imgFilePath;
+        private System.Windows.Forms.ImageList pictureImageList;
+        private System.Windows.Forms.PictureBox imgBox;
+        private System.Windows.Forms.Label idLabel;
     }
 }
