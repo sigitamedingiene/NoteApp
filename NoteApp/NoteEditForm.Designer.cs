@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteEditForm));
             this.label1 = new System.Windows.Forms.Label();
             this.noteIdLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -47,7 +48,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 31);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Location = new System.Drawing.Point(12, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 20);
             this.label1.TabIndex = 0;
@@ -56,7 +58,8 @@
             // noteIdLabel
             // 
             this.noteIdLabel.AutoSize = true;
-            this.noteIdLabel.Location = new System.Drawing.Point(77, 31);
+            this.noteIdLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.noteIdLabel.Location = new System.Drawing.Point(82, 29);
             this.noteIdLabel.Name = "noteIdLabel";
             this.noteIdLabel.Size = new System.Drawing.Size(55, 20);
             this.noteIdLabel.TabIndex = 1;
@@ -65,60 +68,73 @@
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(73, 60);
+            this.nameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.nameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.nameLabel.Location = new System.Drawing.Point(97, 150);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(52, 20);
+            this.nameLabel.Size = new System.Drawing.Size(61, 23);
             this.nameLabel.TabIndex = 2;
             this.nameLabel.Text = "Name:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(73, 109);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(97, 201);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 20);
+            this.label2.Size = new System.Drawing.Size(66, 23);
             this.label2.TabIndex = 3;
             this.label2.Text = "Record:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(73, 233);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(97, 326);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 20);
+            this.label3.Size = new System.Drawing.Size(58, 23);
             this.label3.TabIndex = 4;
             this.label3.Text = "Photo:";
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(138, 60);
+            this.nameTextBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nameTextBox.Location = new System.Drawing.Point(170, 150);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(368, 27);
+            this.nameTextBox.Size = new System.Drawing.Size(368, 20);
             this.nameTextBox.TabIndex = 5;
             // 
             // recordTextBox
             // 
-            this.recordTextBox.Location = new System.Drawing.Point(138, 109);
+            this.recordTextBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.recordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.recordTextBox.Location = new System.Drawing.Point(170, 201);
             this.recordTextBox.Multiline = true;
             this.recordTextBox.Name = "recordTextBox";
-            this.recordTextBox.Size = new System.Drawing.Size(368, 104);
+            this.recordTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.recordTextBox.Size = new System.Drawing.Size(368, 101);
             this.recordTextBox.TabIndex = 6;
             // 
             // photoBox
             // 
+            this.photoBox.BackColor = System.Drawing.Color.Transparent;
             this.photoBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.photoBox.Location = new System.Drawing.Point(138, 233);
+            this.photoBox.Location = new System.Drawing.Point(170, 326);
             this.photoBox.Name = "photoBox";
-            this.photoBox.Size = new System.Drawing.Size(268, 168);
+            this.photoBox.Size = new System.Drawing.Size(268, 180);
             this.photoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.photoBox.TabIndex = 7;
             this.photoBox.TabStop = false;
             // 
             // uploadNewPhotoButton
             // 
-            this.uploadNewPhotoButton.Location = new System.Drawing.Point(412, 303);
+            this.uploadNewPhotoButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.uploadNewPhotoButton.Location = new System.Drawing.Point(444, 451);
             this.uploadNewPhotoButton.Name = "uploadNewPhotoButton";
-            this.uploadNewPhotoButton.Size = new System.Drawing.Size(94, 98);
+            this.uploadNewPhotoButton.Size = new System.Drawing.Size(94, 55);
             this.uploadNewPhotoButton.TabIndex = 8;
             this.uploadNewPhotoButton.Text = "Upload new photo";
             this.uploadNewPhotoButton.UseVisualStyleBackColor = true;
@@ -126,9 +142,10 @@
             // 
             // saveChangesButton
             // 
-            this.saveChangesButton.Location = new System.Drawing.Point(138, 407);
+            this.saveChangesButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.saveChangesButton.Location = new System.Drawing.Point(224, 527);
             this.saveChangesButton.Name = "saveChangesButton";
-            this.saveChangesButton.Size = new System.Drawing.Size(368, 31);
+            this.saveChangesButton.Size = new System.Drawing.Size(218, 31);
             this.saveChangesButton.TabIndex = 9;
             this.saveChangesButton.Text = "Save changes";
             this.saveChangesButton.UseVisualStyleBackColor = true;
@@ -145,7 +162,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 9);
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label4.Location = new System.Drawing.Point(12, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 20);
             this.label4.TabIndex = 11;
@@ -154,7 +172,8 @@
             // userIdLabel
             // 
             this.userIdLabel.AutoSize = true;
-            this.userIdLabel.Location = new System.Drawing.Point(77, 11);
+            this.userIdLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.userIdLabel.Location = new System.Drawing.Point(81, 9);
             this.userIdLabel.Name = "userIdLabel";
             this.userIdLabel.Size = new System.Drawing.Size(51, 20);
             this.userIdLabel.TabIndex = 12;
@@ -164,7 +183,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 450);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(604, 570);
             this.Controls.Add(this.userIdLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.filePathLabel);

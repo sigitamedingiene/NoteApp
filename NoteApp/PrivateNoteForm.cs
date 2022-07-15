@@ -187,9 +187,20 @@ namespace NoteApp
         private void editButton_Click(object sender, EventArgs e)
         {
             SetValueForNoteOrCategorieId = idLabel.Text;
+            Guid ID = Guid.Parse(idLabel.Text);
             SetValueForUserId = userIdLabel.Text;
-            NoteEditForm editNoteForm = new NoteEditForm();
-            editNoteForm.ShowDialog();
+            var note = findData.FindNoteById(ID);
+            if (note != null)
+            {
+                NoteEditForm editNoteForm = new NoteEditForm();
+                editNoteForm.ShowDialog();
+            }
+            else
+            {
+                CategorieEditForm categorieEditForm = new CategorieEditForm();
+                categorieEditForm.ShowDialog();
+            }
+            
         }
     }
 }

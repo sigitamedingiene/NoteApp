@@ -65,7 +65,6 @@ namespace NoteApp
             if (result == DialogResult.OK)
             {
                 this.Close();
-                Application.Restart();
             }
             else
             {
