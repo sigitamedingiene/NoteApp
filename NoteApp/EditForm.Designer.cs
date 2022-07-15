@@ -1,6 +1,6 @@
 ﻿namespace NoteApp
 {
-    partial class DeleteForm
+    partial class EditForm
     {
         /// <summary>
         /// Required designer variable.

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NoteApp
 {
-    public partial class DeleteForm : Form
+    public partial class EditForm : Form
     {
-        public DeleteForm()
+        public EditForm()
         {
             InitializeComponent();
         }

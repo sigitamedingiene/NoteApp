@@ -10,14 +10,13 @@ namespace NoteAppBusiness.Serivices
         {
             _content = dbContent;
         }
-        public void RemoveCategorieByName(Categorie categorie)
+        public void RemoveCategorie(Categorie categorie)
         {
             _content.Remove(categorie);
             _content.SaveChanges();
         }
-        public void RemoveNote(string name, string record, bool privateRecord, string photoUrl)
+        public void RemoveNote(Note note)
         {
-            Note note = new(name, record, privateRecord, photoUrl);
             _content.Remove(note);
             _content.SaveChanges();
         }

@@ -124,37 +124,61 @@ namespace NoteApp
         private void searchNoteByNameButton_Click(object sender, EventArgs e)
         {
             searchTextBox.Clear();
+            imgBox.Image = null;
             var note = findData.FindNoteByName(noteNameList.Text);
             searchTextBox.AppendText($"Name: {note.Name};\r\n Note: {note.Record}\r\n");
             idLabel.Text = note.Id.ToString();
-            if (note.PhotoUrl == null)
+            if (note.PhotoUrl == "")
             {
                 imgBox.Visible = false;
             } else
             {
                 imgBox.Image = new Bitmap(note.PhotoUrl);
             }
+            noteNameList.Text = "Choose note name...";
         }
         private void searchNotesByCategorie_Click(object sender, EventArgs e)
         {
             searchTextBox.Clear();
-            var categorie = findData.FindNotesBycategorieName(categorieListBox.Text);
-            for (int i = 0; i < categorie.Count; i++)
+            imgBox.Image = null;
+            var notes = findData.FindNotesByCategorieName(categorieListBox.Text);
+            if(notes.Count == 0)
             {
-                searchTextBox.AppendText($"Categorie: {categorieListBox.Text};\r\n Notes names: {categorie[i].Name}\r\n Records: {categorie[i].Record}\r\n");
-                idLabel.Text = categorie[i].CategorieId.ToString();
+                searchTextBox.AppendText($"Categorie: {categorieListBox.Text} has no notes.");
+                var categorie = findData.FindCategorieByName(categorieListBox.Text);
+                idLabel.Text = categorie.Id.ToString();
             }
+            else
+            {
+                for (int i = 0; i < notes.Count; i++)
+                {
+                    searchTextBox.AppendText($"Categorie: {categorieListBox.Text};\r\n Notes names: {notes[i].Name}\r\n Records: {notes[i].Record}\r\n");
+                    idLabel.Text = notes[i].CategorieId.ToString();
+                }
+                
+            }           
+            categorieListBox.Text = "Choose categorie name...";
         }
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            Guid categorieId = Guid.Parse(idLabel.Text);
-            var categorie = findData.FindCategorieById(categorieId);
-            categorieListBox.Items.Remove(categorie.Name);
-            categorieListBox.Text = "Choose categorie";
-            categorieNameList.Items.Remove(categorie.Name);
-            removeData.RemoveCategorieByName(categorie);
-            searchTextBox.Clear();
-            MessageBox.Show("Categorie deleted succsesfully.");
+            Guid idFromLabel = Guid.Parse(idLabel.Text);
+            var categorie = findData.FindCategorieById(idFromLabel);
+            var note = findData.FindNoteById(idFromLabel);
+            if (note != null)
+            {
+                noteNameList.Items.Remove(note.Name);
+                removeData.RemoveNote(note);
+                searchTextBox.Clear();
+                MessageBox.Show("Note deleted succsesfully.");
+            }
+            else
+            {
+                categorieListBox.Items.Remove(categorie.Name);
+                categorieNameList.Items.Remove(categorie.Name);
+                removeData.RemoveCategorie(categorie);
+                searchTextBox.Clear();
+                MessageBox.Show("Categorie deleted succsesfully.");
+            }            
             this.Close();
             PrivateNoteForm privateNoteForm = new PrivateNoteForm();
             privateNoteForm.ShowDialog();

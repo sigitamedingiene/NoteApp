@@ -136,7 +136,7 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(24, 61);
+            this.splitContainer1.Location = new System.Drawing.Point(12, 61);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -157,8 +157,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.label3);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.categorieNameTextBox);
-            this.splitContainer1.Size = new System.Drawing.Size(1298, 139);
-            this.splitContainer1.SplitterDistance = 358;
+            this.splitContainer1.Size = new System.Drawing.Size(1310, 139);
+            this.splitContainer1.SplitterDistance = 367;
             this.splitContainer1.TabIndex = 6;
             // 
             // label5
@@ -319,7 +319,7 @@
             // uploadPhoto
             // 
             this.uploadPhoto.Font = new System.Drawing.Font("Segoe UI", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.uploadPhoto.Location = new System.Drawing.Point(93, 351);
+            this.uploadPhoto.Location = new System.Drawing.Point(97, 350);
             this.uploadPhoto.Name = "uploadPhoto";
             this.uploadPhoto.Size = new System.Drawing.Size(61, 48);
             this.uploadPhoto.TabIndex = 12;
@@ -329,15 +329,17 @@
             // 
             // uploadPictureBox
             // 
-            this.uploadPictureBox.Location = new System.Drawing.Point(6, 351);
+            this.uploadPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.uploadPictureBox.Location = new System.Drawing.Point(10, 351);
             this.uploadPictureBox.Name = "uploadPictureBox";
             this.uploadPictureBox.Size = new System.Drawing.Size(81, 48);
+            this.uploadPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.uploadPictureBox.TabIndex = 11;
             this.uploadPictureBox.TabStop = false;
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(205, 351);
+            this.saveButton.Location = new System.Drawing.Point(225, 350);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(107, 48);
             this.saveButton.TabIndex = 8;
@@ -349,7 +351,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(6, 128);
+            this.label8.Location = new System.Drawing.Point(10, 128);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 25);
             this.label8.TabIndex = 10;
@@ -357,17 +359,17 @@
             // 
             // noteTextBox
             // 
-            this.noteTextBox.Location = new System.Drawing.Point(6, 156);
+            this.noteTextBox.Location = new System.Drawing.Point(10, 156);
             this.noteTextBox.Multiline = true;
             this.noteTextBox.Name = "noteTextBox";
-            this.noteTextBox.Size = new System.Drawing.Size(308, 189);
+            this.noteTextBox.Size = new System.Drawing.Size(322, 189);
             this.noteTextBox.TabIndex = 5;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(6, 70);
+            this.label7.Location = new System.Drawing.Point(10, 70);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(148, 25);
             this.label7.TabIndex = 9;
@@ -375,16 +377,16 @@
             // 
             // noteNameTextBox
             // 
-            this.noteNameTextBox.Location = new System.Drawing.Point(6, 98);
+            this.noteNameTextBox.Location = new System.Drawing.Point(10, 98);
             this.noteNameTextBox.Name = "noteNameTextBox";
-            this.noteNameTextBox.Size = new System.Drawing.Size(308, 27);
+            this.noteNameTextBox.Size = new System.Drawing.Size(322, 27);
             this.noteNameTextBox.TabIndex = 5;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(6, 11);
+            this.label6.Location = new System.Drawing.Point(10, 11);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(144, 25);
             this.label6.TabIndex = 5;
@@ -392,19 +394,19 @@
             // 
             // categorieNameList
             // 
-            this.categorieNameList.Location = new System.Drawing.Point(6, 39);
+            this.categorieNameList.Location = new System.Drawing.Point(10, 39);
             this.categorieNameList.Name = "categorieNameList";
-            this.categorieNameList.Size = new System.Drawing.Size(308, 28);
+            this.categorieNameList.Size = new System.Drawing.Size(322, 28);
             this.categorieNameList.TabIndex = 13;
             this.categorieNameList.Text = "Choose categorie...";
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(24, 209);
+            this.searchTextBox.Location = new System.Drawing.Point(12, 213);
             this.searchTextBox.Multiline = true;
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.ReadOnly = true;
-            this.searchTextBox.Size = new System.Drawing.Size(354, 103);
+            this.searchTextBox.Size = new System.Drawing.Size(366, 103);
             this.searchTextBox.TabIndex = 0;
             // 
             // editButton
@@ -453,11 +455,13 @@
             // idLabel
             // 
             this.idLabel.AutoSize = true;
+            this.idLabel.Font = new System.Drawing.Font("Segoe UI", 4.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.idLabel.ForeColor = System.Drawing.Color.Teal;
             this.idLabel.Location = new System.Drawing.Point(24, 319);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(50, 20);
+            this.idLabel.Size = new System.Drawing.Size(15, 11);
             this.idLabel.TabIndex = 11;
-            this.idLabel.Text = "label9";
+            this.idLabel.Text = "ID:";
             // 
             // PrivateNoteForm
             // 
