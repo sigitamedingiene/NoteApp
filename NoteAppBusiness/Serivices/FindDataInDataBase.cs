@@ -13,19 +13,30 @@ namespace NoteAppBusiness.Serivices
         {
             _content = dbContent;
         }
+        public Note FindNoteById (Guid noteId)
+        {
+            return _content.Notes.Find(noteId);
+        }
         public Note FindNoteByName(string name)
         {
             var note = _content.Notes
                 .FirstOrDefault(note => note.Name == name);
             return note;
         }
+        public Note FindNoteByUserAndName (Guid userId, string name)
+        {
+            var note = _content.Notes.
+                FirstOrDefault(note => note.UserId == userId && note.Name == name);
+            return note;
+        }
         public List<Note> FindNotesByUser (Guid userId)
         {
             return _content.Notes.Where(note => note.UserId == userId).ToList();
         }
-        public List<Note> FindNotesBycategorieName (string name)
+        public List<Note> FindNotesByCategorieName (string name)
         {
-            return _content.Notes.Where(note => note.Categorie.Name == name).ToList();
+            var notes = _content.Notes.Where(note => note.Categorie.Name == name).ToList();
+            return notes;
         }
         public List<User> FindUserByLogInName(string logName)
         {
@@ -42,6 +53,16 @@ namespace NoteAppBusiness.Serivices
             var user = _content.Users.
                 FirstOrDefault(user => user.Id == userId);
             return user;
+        }
+        public Categorie FindCategorieById (Guid categorieId)
+        {
+            return _content.Categories.Find(categorieId);
+        }
+        public Categorie FindCategorieByUserAndName (Guid userId, string name)
+        {
+            var categorie = _content.Categories.
+                FirstOrDefault(categorie => categorie.UserId == userId && categorie.Name == name);
+            return categorie;
         }
         public Categorie FindCategorieByName(string name)
         {

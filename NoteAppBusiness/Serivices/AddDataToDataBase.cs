@@ -19,12 +19,6 @@ namespace NoteAppBusiness.Serivices
             _content.Add(newNote);
             _content.SaveChanges();
         }
-        public void AddNewUser(string name, string surName, string logName, string logPassword)
-        {
-            User newUser = new(name, surName, logName, logPassword);
-            _content.Add(newUser);
-            _content.SaveChanges();            
-        }
         public void AddNoteToUser(User user, Note note)
         {
             user.Notes.Add(note);
@@ -32,6 +26,12 @@ namespace NoteAppBusiness.Serivices
         public void AddNoteToCategorie(Categorie categorie, Note note)
         {
             categorie.Notes.Add(note);
+        }
+        public void AddNewUser(string name, string surName, string logName, string logPassword)
+        {
+            User newUser = new(name, surName, logName, logPassword);
+            _content.Add(newUser);
+            _content.SaveChanges();
         }
         public void AddNewCategorie(string name, bool privateName, string description, Guid userId)
         {

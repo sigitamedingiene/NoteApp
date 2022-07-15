@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrivateNoteForm));
             this.label1 = new System.Windows.Forms.Label();
             this.userIdLabel = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@
             this.categorieNameTextBox = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.noteListView = new System.Windows.Forms.TextBox();
+            this.imgFilePath = new System.Windows.Forms.Label();
             this.uploadPhoto = new System.Windows.Forms.Button();
             this.uploadPictureBox = new System.Windows.Forms.PictureBox();
             this.saveButton = new System.Windows.Forms.Button();
@@ -61,6 +63,9 @@
             this.editButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
+            this.pictureImageList = new System.Windows.Forms.ImageList(this.components);
+            this.imgBox = new System.Windows.Forms.PictureBox();
+            this.idLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -70,6 +75,7 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uploadPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -130,7 +136,7 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(24, 61);
+            this.splitContainer1.Location = new System.Drawing.Point(12, 61);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -151,8 +157,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.label3);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.categorieNameTextBox);
-            this.splitContainer1.Size = new System.Drawing.Size(1298, 139);
-            this.splitContainer1.SplitterDistance = 358;
+            this.splitContainer1.Size = new System.Drawing.Size(1310, 139);
+            this.splitContainer1.SplitterDistance = 367;
             this.splitContainer1.TabIndex = 6;
             // 
             // label5
@@ -273,6 +279,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.splitContainer2.Panel2.Controls.Add(this.imgFilePath);
             this.splitContainer2.Panel2.Controls.Add(this.uploadPhoto);
             this.splitContainer2.Panel2.Controls.Add(this.uploadPictureBox);
             this.splitContainer2.Panel2.Controls.Add(this.saveButton);
@@ -282,7 +289,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.noteNameTextBox);
             this.splitContainer2.Panel2.Controls.Add(this.label6);
             this.splitContainer2.Panel2.Controls.Add(this.categorieNameList);
-            this.splitContainer2.Size = new System.Drawing.Size(938, 415);
+            this.splitContainer2.Size = new System.Drawing.Size(938, 425);
             this.splitContainer2.SplitterDistance = 576;
             this.splitContainer2.TabIndex = 7;
             // 
@@ -291,16 +298,28 @@
             this.noteListView.BackColor = System.Drawing.SystemColors.Menu;
             this.noteListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.noteListView.Font = new System.Drawing.Font("Viner Hand ITC", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.noteListView.Location = new System.Drawing.Point(42, 59);
+            this.noteListView.Location = new System.Drawing.Point(33, 59);
             this.noteListView.Multiline = true;
             this.noteListView.Name = "noteListView";
-            this.noteListView.Size = new System.Drawing.Size(500, 322);
+            this.noteListView.ReadOnly = true;
+            this.noteListView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.noteListView.Size = new System.Drawing.Size(519, 356);
             this.noteListView.TabIndex = 0;
+            // 
+            // imgFilePath
+            // 
+            this.imgFilePath.AutoSize = true;
+            this.imgFilePath.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.imgFilePath.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.imgFilePath.Location = new System.Drawing.Point(6, 402);
+            this.imgFilePath.Name = "imgFilePath";
+            this.imgFilePath.Size = new System.Drawing.Size(0, 17);
+            this.imgFilePath.TabIndex = 14;
             // 
             // uploadPhoto
             // 
             this.uploadPhoto.Font = new System.Drawing.Font("Segoe UI", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.uploadPhoto.Location = new System.Drawing.Point(93, 351);
+            this.uploadPhoto.Location = new System.Drawing.Point(97, 350);
             this.uploadPhoto.Name = "uploadPhoto";
             this.uploadPhoto.Size = new System.Drawing.Size(61, 48);
             this.uploadPhoto.TabIndex = 12;
@@ -310,15 +329,17 @@
             // 
             // uploadPictureBox
             // 
-            this.uploadPictureBox.Location = new System.Drawing.Point(6, 351);
+            this.uploadPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.uploadPictureBox.Location = new System.Drawing.Point(10, 351);
             this.uploadPictureBox.Name = "uploadPictureBox";
             this.uploadPictureBox.Size = new System.Drawing.Size(81, 48);
+            this.uploadPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.uploadPictureBox.TabIndex = 11;
             this.uploadPictureBox.TabStop = false;
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(205, 351);
+            this.saveButton.Location = new System.Drawing.Point(225, 350);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(107, 48);
             this.saveButton.TabIndex = 8;
@@ -330,7 +351,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(6, 128);
+            this.label8.Location = new System.Drawing.Point(10, 128);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 25);
             this.label8.TabIndex = 10;
@@ -338,17 +359,17 @@
             // 
             // noteTextBox
             // 
-            this.noteTextBox.Location = new System.Drawing.Point(6, 156);
+            this.noteTextBox.Location = new System.Drawing.Point(10, 156);
             this.noteTextBox.Multiline = true;
             this.noteTextBox.Name = "noteTextBox";
-            this.noteTextBox.Size = new System.Drawing.Size(308, 189);
+            this.noteTextBox.Size = new System.Drawing.Size(322, 189);
             this.noteTextBox.TabIndex = 5;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(6, 70);
+            this.label7.Location = new System.Drawing.Point(10, 70);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(148, 25);
             this.label7.TabIndex = 9;
@@ -356,16 +377,16 @@
             // 
             // noteNameTextBox
             // 
-            this.noteNameTextBox.Location = new System.Drawing.Point(6, 98);
+            this.noteNameTextBox.Location = new System.Drawing.Point(10, 98);
             this.noteNameTextBox.Name = "noteNameTextBox";
-            this.noteNameTextBox.Size = new System.Drawing.Size(308, 27);
+            this.noteNameTextBox.Size = new System.Drawing.Size(322, 27);
             this.noteNameTextBox.TabIndex = 5;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(6, 11);
+            this.label6.Location = new System.Drawing.Point(10, 11);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(144, 25);
             this.label6.TabIndex = 5;
@@ -373,19 +394,19 @@
             // 
             // categorieNameList
             // 
-            this.categorieNameList.Location = new System.Drawing.Point(6, 39);
+            this.categorieNameList.Location = new System.Drawing.Point(10, 39);
             this.categorieNameList.Name = "categorieNameList";
-            this.categorieNameList.Size = new System.Drawing.Size(308, 28);
+            this.categorieNameList.Size = new System.Drawing.Size(322, 28);
             this.categorieNameList.TabIndex = 13;
             this.categorieNameList.Text = "Choose categorie...";
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(24, 209);
+            this.searchTextBox.Location = new System.Drawing.Point(12, 213);
             this.searchTextBox.Multiline = true;
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.ReadOnly = true;
-            this.searchTextBox.Size = new System.Drawing.Size(354, 103);
+            this.searchTextBox.Size = new System.Drawing.Size(366, 103);
             this.searchTextBox.TabIndex = 0;
             // 
             // editButton
@@ -396,6 +417,7 @@
             this.editButton.TabIndex = 8;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // deleteButton
             // 
@@ -405,6 +427,7 @@
             this.deleteButton.TabIndex = 9;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // logOutButton
             // 
@@ -415,12 +438,40 @@
             this.logOutButton.Text = "Log Out";
             this.logOutButton.UseVisualStyleBackColor = true;
             // 
+            // pictureImageList
+            // 
+            this.pictureImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.pictureImageList.ImageSize = new System.Drawing.Size(70, 70);
+            this.pictureImageList.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // imgBox
+            // 
+            this.imgBox.Location = new System.Drawing.Point(35, 395);
+            this.imgBox.Name = "imgBox";
+            this.imgBox.Size = new System.Drawing.Size(343, 236);
+            this.imgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgBox.TabIndex = 10;
+            this.imgBox.TabStop = false;
+            // 
+            // idLabel
+            // 
+            this.idLabel.AutoSize = true;
+            this.idLabel.Font = new System.Drawing.Font("Segoe UI", 4.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.idLabel.ForeColor = System.Drawing.Color.Teal;
+            this.idLabel.Location = new System.Drawing.Point(24, 319);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(15, 11);
+            this.idLabel.TabIndex = 11;
+            this.idLabel.Text = "ID:";
+            // 
             // PrivateNoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(1334, 633);
+            this.ClientSize = new System.Drawing.Size(1334, 641);
+            this.Controls.Add(this.idLabel);
+            this.Controls.Add(this.imgBox);
             this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.splitContainer2);
@@ -448,6 +499,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.uploadPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -487,5 +539,9 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.TextBox noteListView;
+        private System.Windows.Forms.Label imgFilePath;
+        private System.Windows.Forms.ImageList pictureImageList;
+        private System.Windows.Forms.PictureBox imgBox;
+        private System.Windows.Forms.Label idLabel;
     }
 }
