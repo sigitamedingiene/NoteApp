@@ -14,6 +14,8 @@ namespace NoteApp
         AddDataToDataBase addData = new(_content);
         FindDataInDataBase findData = new(_content);
         RemoveDataFromDataBase removeData = new(_content);
+        public static string SetValueForNoteOrCategorieId = "";
+        public static string SetValueForUserId = "";
         public PrivateNoteForm()
         {
             InitializeComponent();
@@ -23,9 +25,9 @@ namespace NoteApp
             userIdLabel.Text = LogInForm.SetValueForUserId;
             userTextBox.Text = LogInForm.SetValueForUserName;
             userSurnameTextBox.Text = LogInForm.SetValueForUserSurName;
-            AddNoteNameByUserToList();
-            AddCategorieByUserToList();
             Guid userId = Guid.Parse(userIdLabel.Text);
+            AddNoteNameByUserToList(userId);
+            AddCategorieByUserToList(userId);            
             var notes = findData.FindNotesByUser(userId);
             var categories = findData.FindCategorieByUserId(userId);
             for (int i = 0; i < notes.Count; i++)
@@ -47,9 +49,8 @@ namespace NoteApp
                 }                
             }
         }
-        private void AddCategorieByUserToList()
+        private void AddCategorieByUserToList(Guid userId)
          {   
-            Guid userId = Guid.Parse(userIdLabel.Text);
             List<Categorie> categorieList = findData.FindCategorieByUserId(userId);
              for (int i = 0; i < categorieList.Count; i++)
              {
@@ -57,9 +58,9 @@ namespace NoteApp
                  categorieNameList.Items.Add(categorieList[i].Name);
              }
          }
-        private void AddNoteNameByUserToList()
+        private void AddNoteNameByUserToList(Guid userId)
         {
-            Guid userId = Guid.Parse(userIdLabel.Text);
+            noteNameList.Items.Clear();
             List<Note> noteList = findData.FindNotesByUser(userId);
             for (int i = 0; i < noteList.Count; i++)
             {
@@ -182,6 +183,13 @@ namespace NoteApp
             this.Close();
             PrivateNoteForm privateNoteForm = new PrivateNoteForm();
             privateNoteForm.ShowDialog();
+        }
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            SetValueForNoteOrCategorieId = idLabel.Text;
+            SetValueForUserId = userIdLabel.Text;
+            NoteEditForm editNoteForm = new NoteEditForm();
+            editNoteForm.ShowDialog();
         }
     }
 }
