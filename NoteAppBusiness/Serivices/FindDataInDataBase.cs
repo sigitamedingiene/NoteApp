@@ -38,6 +38,10 @@ namespace NoteAppBusiness.Serivices
             var notes = _content.Notes.Where(note => note.Categorie.Name == name).ToList();
             return notes;
         }
+        public List<Note> FindNoteByCategorieId(Guid categorieId)
+        {
+            return _content.Notes.Where (note => note.CategorieId == categorieId).ToList();
+        }
         public List<User> FindUserByLogInName(string logName)
         {
             return _content.Users.Where(user => user.LoginName == logName).ToList();
@@ -73,6 +77,12 @@ namespace NoteAppBusiness.Serivices
         public List<Categorie> FindCategorieByUserId(Guid userId)
         {
             return _content.Categories.Where(categorie => categorie.UserId == userId).ToList();
+        }
+        public Categorie FindPublicCategorieByName(string name)
+        {
+            var categorie = _content.Categories.
+                FirstOrDefault(categorie => categorie.Name == name && categorie.PrivateName == false);
+            return categorie;
         }
     }
 }

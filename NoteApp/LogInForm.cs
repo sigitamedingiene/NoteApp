@@ -40,5 +40,10 @@ namespace NoteApp
                 this.Visible = false;
             }   
         }
+        private void ContinueAsAGuestButton_Click(object sender, System.EventArgs e)
+        {
+            ContinueAsAGuestForm guestForm = new ContinueAsAGuestForm();
+            guestForm.Show();
+        }
     }
 }

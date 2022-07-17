@@ -11,9 +11,9 @@ namespace NoteAppBusiness.Serivices
         {
             _content = dbContent;
         }
-        public void AddNewNote(string name, string record, bool privateRecord, string photoUrl, Guid categorieId, Guid userId)
+        public void AddNewNote(string name, string record, bool isPrivateRecord, string photoUrl, Guid categorieId, Guid userId)
         {
-            Note newNote = new(name, record, privateRecord, photoUrl);
+            Note newNote = new(name, record, isPrivateRecord, photoUrl);
             newNote.CategorieId = categorieId;
             newNote.UserId = userId;
             _content.Add(newNote);
@@ -33,11 +33,21 @@ namespace NoteAppBusiness.Serivices
             _content.Add(newUser);
             _content.SaveChanges();
         }
-        public void AddNewCategorie(string name, bool privateName, string description, Guid userId)
+        public void AddNewCategorie(string name, bool isPrivateName, string description, Guid userId)
         {
-            Categorie newCategorie = new(name, description, privateName);
+            Categorie newCategorie = new(name, description, isPrivateName);
             newCategorie.UserId = userId;
             _content.Add(newCategorie);
+            _content.SaveChanges();
+        }
+        public void AddPublicUser()
+        {
+            string name = "publicName";
+            string surName = "publicSurname";
+            string logName = "public";
+            string password = "public";
+            User pablicUser = new(name, surName, logName, password);
+            _content.Add(pablicUser);
             _content.SaveChanges();
         }
     }
