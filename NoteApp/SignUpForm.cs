@@ -16,29 +16,33 @@ namespace NoteApp
         {
             InitializeComponent();
         }
-
         private void createNewUserButton_Click(object sender, EventArgs e)
-        {
+        {  
             string name = nameTextBox.Text;
             string surName = surNameTextBox.Text;
-            string enteredLogName = logInNameTextBox.Text;
-            List<User> userLogInNames = findData.FindUserByLogInName(enteredLogName);
-            string logInName = "";
-            if (userLogInNames.Count == 0)
+            string logInName = logInNameTextBox.Text;
+            string logInPassword = passwordTextBox.Text;
+            if (name == "" || surName == "" || logInName == "" || logInPassword == "")
             {
-                logInName = logInNameTextBox.Text;
-                string logInPassword = passwordTextBox.Text;
-                addData.AddNewUser(name, surName, logInName, logInPassword);
-                MessageBox.Show("Account created succsesfully");
-                nameTextBox.Clear();
-                surNameTextBox.Clear();
-                logInNameTextBox.Clear();
-                passwordTextBox.Clear();
+                MessageBox.Show("Please fill in all the boxes");
             }
             else
             {
-                logInNameTextBox.Clear();
-                MessageBox.Show("This user name is taken, please enter new one and try again.");
+                List<User> userLogInNames = findData.FindUserByLogInName(logInName);
+                if (userLogInNames.Count == 0)
+                {
+                    addData.AddNewUser(name, surName, logInName, logInPassword);
+                    MessageBox.Show("Account created succsesfully");
+                    nameTextBox.Clear();
+                    surNameTextBox.Clear();
+                    logInNameTextBox.Clear();
+                    passwordTextBox.Clear();
+                }
+                else
+                {
+                    logInNameTextBox.Clear();
+                    MessageBox.Show("This user name is taken, please enter new one and try again.");
+                }
             }          
         }
     }
