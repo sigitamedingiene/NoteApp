@@ -49,12 +49,18 @@ namespace NoteApp
         {
             Guid noteId = Guid.Parse(noteIdLabel.Text);
             var note = findData.FindNoteById(noteId);
-            Guid userId = Guid.Parse(userIdLabel.Text);
-            note.Name = nameTextBox.Text;
-            note.Record = recordTextBox.Text;
+            string name = note.Name = nameTextBox.Text;
+            string record = note.Record = recordTextBox.Text;
             note.PhotoUrl = filePathLabel.Text;
-            editData.EditNote(noteId, note);
-            ShowMessageBox();
+            if(name == "" || record == "")
+            {
+                MessageBox.Show("Please fill in all the boxes.");
+            }
+            else
+            {
+                editData.EditNote(noteId, note);
+                ShowMessageBox();
+            }            
         }
         private void ShowMessageBox()
         {
