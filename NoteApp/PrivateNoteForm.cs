@@ -37,9 +37,9 @@ namespace NoteApp
                     {
                         if (notes[i].PhotoUrl == null)
                         {
-                            noteListView.AppendText($"\r\nCategorie: {categories[j].Name};\r\nNote name: {notes[i].Name}; Record: {notes[i].Record}\r\n");
+                            noteListView.AppendText($"Categorie: {categories[j].Name}\r\nNote name: {notes[i].Name}\r\nRecord: {notes[i].Record}\r\n\r\n");
                         }
-                        noteListView.AppendText($"\r\nCategorie: {categories[j].Name};\r\nNote name: {notes[i].Name}; Record: {notes[i].Record}\r\n");
+                        noteListView.AppendText($"Categorie: {categories[j].Name}\r\nNote name: {notes[i].Name}\r\nRecord: {notes[i].Record}\r\n\r\n");
                     }
                 }
             }
@@ -129,7 +129,7 @@ namespace NoteApp
                     var note = findData.FindNoteByName(name);
                     addData.AddNoteToUser(user, note);
                     addData.AddNoteToCategorie(categorie, note);
-                    noteListView.AppendText($"\r\nCategorie: {categorie.Name};\r\nNote name: {name}; Record: {record};\r\n");
+                    noteListView.AppendText($"Categorie: {categorie.Name}\r\nNote name: {name}\r\nRecord: {record}\r\n\r\n");
                     noteNameTextBox.Clear();
                     noteTextBox.Clear();
                     MessageBox.Show("Note created succsesfully");
@@ -148,7 +148,7 @@ namespace NoteApp
             else
             {
                 var note = findData.FindNoteByName(noteName);
-                searchTextBox.AppendText($"Name: {note.Name};\r\n Note: {note.Record}\r\n");
+                searchTextBox.AppendText($"Name: {note.Name}\r\n Note: {note.Record}\r\n");
                 idLabel.Text = note.Id.ToString();
                 if (note.PhotoUrl == "")
                 {
@@ -183,10 +183,9 @@ namespace NoteApp
                     searchTextBox.AppendText($"Categorie: {categorieListBox.Text}:\r\n");
                     for (int i = 0; i < notes.Count; i++)
                     {
-                        searchTextBox.AppendText($"\r\nNote name: {notes[i].Name}; Record: {notes[i].Record};\r\n");
+                        searchTextBox.AppendText($"Note name: {notes[i].Name};\r\nRecord: {notes[i].Record};\r\n\r\n");
                         idLabel.Text = notes[i].CategorieId.ToString();
                     }
-
                 }
             }
         }
