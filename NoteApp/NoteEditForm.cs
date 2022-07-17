@@ -60,6 +60,7 @@ namespace NoteApp
             {
                 editData.EditNote(noteId, note);
                 ShowMessageBox();
+                Application.Restart();
             }            
         }
         private void ShowMessageBox()

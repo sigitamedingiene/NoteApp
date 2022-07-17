@@ -32,10 +32,18 @@ namespace NoteApp
             Guid categorieId = Guid.Parse(categorieIdLabel.Text);
             var categorie = findData.FindCategorieById(categorieId);
             Guid userId = Guid.Parse(userIdLabel.Text);
-            categorie.Name = nameTextBox.Text;
-            categorie.Description = descriptionTextBox.Text;
-            editData.EditCategorie(categorieId, categorie);
-            ShowMessageBox();
+            string name = categorie.Name = nameTextBox.Text;
+            string description = categorie.Description = descriptionTextBox.Text;
+            if (name == "" || description == "")
+            {
+                MessageBox.Show("Please fill in all the boxes.");
+            }
+            else
+            {
+                editData.EditCategorie(categorieId, categorie);
+                ShowMessageBox();
+                Application.Restart();
+            }
         }
         private void ShowMessageBox()
         {
