@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogInForm));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.signUpButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ContinueAsAGuestButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,7 +56,7 @@
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Teal;
             this.splitContainer1.Panel1.Controls.Add(this.signUpButton);
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.splitContainer1.Panel1.Controls.Add(this.ContinueAsAGuestButton);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
@@ -90,20 +90,21 @@
             this.signUpButton.UseVisualStyleBackColor = false;
             this.signUpButton.Click += new System.EventHandler(this.signUpButton_Click);
             // 
-            // button1
+            // ContinueAsAGuestButton
             // 
-            this.button1.BackColor = System.Drawing.Color.MintCream;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.FlatAppearance.BorderSize = 3;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(129, 298);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 29);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Continue as a guest";
-            this.button1.UseVisualStyleBackColor = false;
+            this.ContinueAsAGuestButton.BackColor = System.Drawing.Color.MintCream;
+            this.ContinueAsAGuestButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ContinueAsAGuestButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ContinueAsAGuestButton.FlatAppearance.BorderSize = 3;
+            this.ContinueAsAGuestButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ContinueAsAGuestButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ContinueAsAGuestButton.Location = new System.Drawing.Point(129, 298);
+            this.ContinueAsAGuestButton.Name = "ContinueAsAGuestButton";
+            this.ContinueAsAGuestButton.Size = new System.Drawing.Size(165, 29);
+            this.ContinueAsAGuestButton.TabIndex = 4;
+            this.ContinueAsAGuestButton.Text = "Continue as a guest";
+            this.ContinueAsAGuestButton.UseVisualStyleBackColor = false;
+            this.ContinueAsAGuestButton.Click += new System.EventHandler(this.ContinueAsAGuestButton_Click);
             // 
             // label4
             // 
@@ -220,7 +221,7 @@
         private System.Windows.Forms.TextBox userNameTextBox;
         private System.Windows.Forms.Button signInButton;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ContinueAsAGuestButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button signUpButton;
