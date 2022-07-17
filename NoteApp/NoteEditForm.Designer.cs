@@ -103,8 +103,9 @@
             this.nameTextBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.nameTextBox.Location = new System.Drawing.Point(170, 150);
+            this.nameTextBox.Multiline = true;
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(368, 20);
+            this.nameTextBox.Size = new System.Drawing.Size(368, 27);
             this.nameTextBox.TabIndex = 5;
             // 
             // recordTextBox
@@ -154,10 +155,11 @@
             // filePathLabel
             // 
             this.filePathLabel.AutoSize = true;
-            this.filePathLabel.Location = new System.Drawing.Point(412, 233);
+            this.filePathLabel.Location = new System.Drawing.Point(170, 303);
             this.filePathLabel.Name = "filePathLabel";
             this.filePathLabel.Size = new System.Drawing.Size(0, 20);
             this.filePathLabel.TabIndex = 10;
+            this.filePathLabel.Visible = false;
             // 
             // label4
             // 
