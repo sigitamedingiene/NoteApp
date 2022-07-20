@@ -10,8 +10,7 @@ namespace NoteApp
     public partial class SignUpForm : Form
     {
         public static DbContent _content = new DbContent();
-        AddDataToDataBase addData = new(_content);
-        FindDataInDataBase findData = new(_content);
+        UserServices userServices = new(_content);
         public SignUpForm()
         {
             InitializeComponent();
@@ -28,10 +27,10 @@ namespace NoteApp
             }
             else
             {
-                List<User> userLogInNames = findData.FindUserByLogInName(logInName);
+                List<User> userLogInNames = userServices.FindUserByLogInName(logInName);
                 if (userLogInNames.Count == 0)
                 {
-                    addData.AddNewUser(name, surName, logInName, logInPassword);
+                    userServices.AddNewUser(name, surName, logInName, logInPassword);
                     MessageBox.Show("Account created succsesfully");
                     nameTextBox.Clear();
                     surNameTextBox.Clear();
