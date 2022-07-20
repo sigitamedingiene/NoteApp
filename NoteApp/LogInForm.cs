@@ -11,9 +11,9 @@ namespace NoteApp
             InitializeComponent();
         }
         public static DbContent _content = new();
-        FindDataInDataBase findData = new(_content);
-        SignUpForm signUp = new SignUpForm();
-        PrivateNoteForm privateForm = new PrivateNoteForm();
+        UserServices findData = new(_content);
+        SignUpForm signUp = new();
+        PrivateNoteForm privateForm = new();
         public static string SetValueForUserId = "";
         public static string SetValueForUserName = "";
         public static string SetValueForUserSurName = "";
@@ -42,7 +42,7 @@ namespace NoteApp
         }
         private void ContinueAsAGuestButton_Click(object sender, System.EventArgs e)
         {
-            ContinueAsAGuestForm guestForm = new ContinueAsAGuestForm();
+            ContinueAsAGuestForm guestForm = new();
             guestForm.Show();
         }
     }

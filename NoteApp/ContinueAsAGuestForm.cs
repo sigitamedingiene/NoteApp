@@ -7,9 +7,10 @@ namespace NoteApp
 {
     public partial class ContinueAsAGuestForm : Form
     { 
-        public static DbContent _content = new DbContent();
-        AddDataToDataBase addData = new(_content);
-        FindDataInDataBase findData = new(_content);
+        public static DbContent _content = new();
+        CategorieServices categorieServices = new(_content);
+        UserServices userServices = new(_content);
+        NoteServices noteServices = new(_content);
 
         public ContinueAsAGuestForm()
         {
@@ -18,10 +19,10 @@ namespace NoteApp
         }
         public void AddPublicUser()
         {
-            var user = findData.FindUserByLogNameAndPassword("public", "public");
+            var user = userServices.FindUserByLogNameAndPassword("public", "public");
             if (user == null)
             {
-                addData.AddPublicUser();
+                userServices.AddPublicUser();
             }
         }
         private void saveButton_Click(object sender, EventArgs e)
@@ -30,7 +31,7 @@ namespace NoteApp
             string categorieDescription = categorieDescriptionTextBox.Text;
             string noteName = noteNameTextBox.Text;
             string note = noteTextBox.Text;
-            var user = findData.FindUserByLogNameAndPassword("public", "public");
+            var user = userServices.FindUserByLogNameAndPassword("public", "public");
             Guid userId = user.Id;
             if(categorieName == "" || categorieDescription == "" || noteName == "" || note == "")
             {
@@ -38,10 +39,10 @@ namespace NoteApp
             }
             else
             {
-                addData.AddNewCategorie(categorieName, false, categorieDescription, userId);
-                var categorie = findData.FindPublicCategorieByName(categorieName);
+                categorieServices.AddNewCategorie(categorieName, false, categorieDescription, userId);
+                var categorie = categorieServices.FindPublicCategorieByName(categorieName);
                 Guid categorieId = categorie.Id;
-                addData.AddNewNote(noteName, note, false, "none", categorieId, userId);
+                noteServices.AddNewNote(noteName, note, false, "none", categorieId, userId);
                 MessageBox.Show("Data added");
                 infoTextBox.AppendText($"Categorie: {categorieName};\r\n Note name: {noteName}; Note: {note}\r\n\r\n");
                 categorieNameTextBox.Clear();
@@ -53,7 +54,7 @@ namespace NoteApp
         private void searchButton_Click(object sender, EventArgs e)
         {
             string categorieName = categorieSearchTextBox.Text;
-            var categorie = findData.FindPublicCategorieByName(categorieName);
+            var categorie = categorieServices.FindPublicCategorieByName(categorieName);
             if (categorieName == "")
             {
                 MessageBox.Show("Please write the categorie name");
@@ -63,7 +64,7 @@ namespace NoteApp
             }else
             {
                 infoTextBox.AppendText($"Categorie: {categorie.Name};\r\n");
-                var note = findData.FindNoteByCategorieId(categorie.Id);
+                var note = noteServices.FindNoteByCategorieId(categorie.Id);
                 for (int i = 0; i < note.Count; i++)
                 {
                     infoTextBox.AppendText($"Note name: {note[i].Name};\r\n Note: {note[i].Record}\r\n\r\n");

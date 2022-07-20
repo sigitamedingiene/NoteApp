@@ -10,8 +10,7 @@ namespace NoteApp
     public partial class NoteEditForm : Form
     {
         public static DbContent _content = new();
-        FindDataInDataBase findData = new FindDataInDataBase(_content);
-        EditDataInDataBase editData = new EditDataInDataBase(_content);
+        NoteServices noteServices = new NoteServices(_content);
         public NoteEditForm()
         {
             InitializeComponent();
@@ -25,7 +24,7 @@ namespace NoteApp
         private void FindAndShowData()
         {
             Guid noteId = Guid.Parse(noteIdLabel.Text);
-            var note = findData.FindNoteById(noteId);
+            var note = noteServices.FindNoteById(noteId);
             nameTextBox.Text = note.Name;
             recordTextBox.Text = note.Record;
             if(note.PhotoUrl != "")
@@ -48,7 +47,7 @@ namespace NoteApp
         private void saveChangesButton_Click(object sender, EventArgs e)
         {
             Guid noteId = Guid.Parse(noteIdLabel.Text);
-            var note = findData.FindNoteById(noteId);
+            var note = noteServices.FindNoteById(noteId);
             string name = note.Name = nameTextBox.Text;
             string record = note.Record = recordTextBox.Text;
             note.PhotoUrl = filePathLabel.Text;
@@ -58,7 +57,7 @@ namespace NoteApp
             }
             else
             {
-                editData.EditNote(noteId, note);
+                noteServices.EditNote(noteId, note);
                 ShowMessageBox();
                 Application.Restart();
             }            

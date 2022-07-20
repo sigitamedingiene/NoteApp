@@ -11,9 +11,9 @@ namespace NoteApp
     public partial class PrivateNoteForm : Form
     {
         public static DbContent _content = new();
-        AddDataToDataBase addData = new(_content);
-        FindDataInDataBase findData = new(_content);
-        RemoveDataFromDataBase removeData = new(_content);
+        CategorieServices categorieServices = new(_content);
+        UserServices userServices = new(_content);
+        NoteServices noteServices = new NoteServices(_content);
         public static string SetValueForNoteOrCategorieId = "";
         public static string SetValueForUserId = "";
         public PrivateNoteForm()
@@ -27,8 +27,8 @@ namespace NoteApp
             Guid userId = Guid.Parse(userIdLabel.Text);
             AddNoteNameByUserToList(userId);
             AddCategorieByUserToList(userId);
-            var notes = findData.FindNotesByUser(userId);
-            var categories = findData.FindCategorieByUserId(userId);
+            var notes = noteServices.FindNotesByUser(userId);
+            var categories = categorieServices.FindCategorieByUserId(userId);
             for (int i = 0; i < notes.Count; i++)
             {
                 for (int j = 0; j < categories.Count; j++)
@@ -46,7 +46,7 @@ namespace NoteApp
         }
         private void AddCategorieByUserToList(Guid userId)
         {
-            List<Categorie> categorieList = findData.FindCategorieByUserId(userId);
+            List<Categorie> categorieList = categorieServices.FindCategorieByUserId(userId);
             for (int i = 0; i < categorieList.Count; i++)
             {
                 categorieListBox.Items.Add(categorieList[i].Name);
@@ -56,7 +56,7 @@ namespace NoteApp
         private void AddNoteNameByUserToList(Guid userId)
         {
             noteNameList.Items.Clear();
-            List<Note> noteList = findData.FindNotesByUser(userId);
+            List<Note> noteList = noteServices.FindNotesByUser(userId);
             for (int i = 0; i < noteList.Count; i++)
             {
                 noteNameList.Items.Add(noteList[i].Name);
@@ -73,14 +73,14 @@ namespace NoteApp
             }
             else
             {
-                var categorie = findData.FindCategorieByUserAndName(userId, name);
+                var categorie = categorieServices.FindCategorieByUserAndName(userId, name);
                 if (categorie != null)
                 {
                     MessageBox.Show("This categorie allready exists. Please choose from the list below, or enter a new one.");
                 }
                 else
                 {
-                    addData.AddNewCategorie(name, true, description, userId);
+                    categorieServices.AddNewCategorie(name, true, description, userId);
                     categorieNameList.Items.Add(name);
                     categorieListBox.Items.Add(name);
                     MessageBox.Show("Categorie created succsesfully.");
@@ -113,22 +113,22 @@ namespace NoteApp
             } else
             {
                 Guid userId = Guid.Parse(userIdLabel.Text);
-                var _note = findData.FindNoteByUserAndName(userId, name);
+                var _note = noteServices.FindNoteByUserAndName(userId, name);
                 if (_note != null)
                 {
                     MessageBox.Show("This note name allready exists.");
                 }
                 else
                 {
-                    var categorie = findData.FindCategorieByName(categorieNameList.Text);
+                    var categorie = categorieServices.FindCategorieByName(categorieNameList.Text);
                     Guid categorieId = categorie.Id;
                     string pictureFilePath = imgFilePath.Text;
-                    addData.AddNewNote(name, record, true, pictureFilePath, categorieId, userId);
+                    noteServices.AddNewNote(name, record, true, pictureFilePath, categorieId, userId);
                     noteNameList.Items.Add(name);
-                    var user = findData.FindUserById(userId);
-                    var note = findData.FindNoteByName(name);
-                    addData.AddNoteToUser(user, note);
-                    addData.AddNoteToCategorie(categorie, note);
+                    var user = userServices.FindUserById(userId);
+                    var note =noteServices.FindNoteByName(name);
+                    noteServices.AddNoteToUser(user, note);
+                    noteServices.AddNoteToCategorie(categorie, note);
                     noteListView.AppendText($"Categorie: {categorie.Name}\r\nNote name: {name}\r\nRecord: {record}\r\n\r\n");
                     noteNameTextBox.Clear();
                     noteTextBox.Clear();
@@ -147,7 +147,7 @@ namespace NoteApp
             }
             else
             {
-                var note = findData.FindNoteByName(noteName);
+                var note = noteServices.FindNoteByName(noteName);
                 searchTextBox.AppendText($"Name: {note.Name}\r\n Note: {note.Record}\r\n");
                 idLabel.Text = note.Id.ToString();
                 if (note.PhotoUrl == "")
@@ -171,11 +171,11 @@ namespace NoteApp
             }
             else
             {
-                var notes = findData.FindNotesByCategorieName(categorieName);
+                var notes = noteServices.FindNotesByCategorieName(categorieName);
                 if (notes.Count == 0)
                 {
                     searchTextBox.AppendText($"Categorie: {categorieListBox.Text} has no notes.");
-                    var categorie = findData.FindCategorieByName(categorieListBox.Text);
+                    var categorie = categorieServices.FindCategorieByName(categorieListBox.Text);
                     idLabel.Text = categorie.Id.ToString();
                 }
                 else
@@ -197,12 +197,12 @@ namespace NoteApp
             else
             {
                 Guid idFromLabel = Guid.Parse(idLabel.Text);
-                var categorie = findData.FindCategorieById(idFromLabel);
-                var note = findData.FindNoteById(idFromLabel);
+                var categorie = categorieServices.FindCategorieById(idFromLabel);
+                var note = noteServices.FindNoteById(idFromLabel);
                 if (note != null)
                 {
                     noteNameList.Items.Remove(note.Name);
-                    removeData.RemoveNote(note);
+                    noteServices.RemoveNote(note);
                     searchTextBox.Clear();
                     MessageBox.Show("Note deleted succsesfully.");
                 }
@@ -210,7 +210,7 @@ namespace NoteApp
                 {
                     categorieListBox.Items.Remove(categorie.Name);
                     categorieNameList.Items.Remove(categorie.Name);
-                    removeData.RemoveCategorie(categorie);
+                    categorieServices.RemoveCategorie(categorie);
                     searchTextBox.Clear();
                     MessageBox.Show("Categorie deleted succsesfully.");
                 }
@@ -229,7 +229,7 @@ namespace NoteApp
                 SetValueForNoteOrCategorieId = idLabel.Text;
                 Guid ID = Guid.Parse(idLabel.Text);
                 SetValueForUserId = userIdLabel.Text;
-                var note = findData.FindNoteById(ID);
+                var note = noteServices.FindNoteById(ID);
                 if (note != null)
                 {
                     NoteEditForm editNoteForm = new NoteEditForm();

@@ -8,8 +8,7 @@ namespace NoteApp
     public partial class CategorieEditForm : Form
     {
         public static DbContent _content = new();
-        FindDataInDataBase findData = new FindDataInDataBase(_content);
-        EditDataInDataBase editData = new EditDataInDataBase(_content);
+        CategorieServices categorieServices = new CategorieServices(_content);
         public CategorieEditForm()
         {
             InitializeComponent();
@@ -23,15 +22,14 @@ namespace NoteApp
         private void FindAndShowData()
         {
             Guid categorieId = Guid.Parse(categorieIdLabel.Text);
-            var categorie = findData.FindCategorieById(categorieId);
+            var categorie = categorieServices.FindCategorieById(categorieId);
             nameTextBox.Text = categorie.Name;
             descriptionTextBox.Text = categorie.Description;           
         }
         private void saveChangesButton_Click(object sender, EventArgs e)
         {
             Guid categorieId = Guid.Parse(categorieIdLabel.Text);
-            var categorie = findData.FindCategorieById(categorieId);
-            Guid userId = Guid.Parse(userIdLabel.Text);
+            var categorie = categorieServices.FindCategorieById(categorieId);
             string name = categorie.Name = nameTextBox.Text;
             string description = categorie.Description = descriptionTextBox.Text;
             if (name == "" || description == "")
@@ -40,7 +38,7 @@ namespace NoteApp
             }
             else
             {
-                editData.EditCategorie(categorieId, categorie);
+                categorieServices.EditCategorie(categorieId, categorie);
                 ShowMessageBox();
                 Application.Restart();
             }
